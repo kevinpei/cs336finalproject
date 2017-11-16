@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Beer World</title>
+<title>FUBAR</title>
 </head>
 <body>
-Hello World1 <!-- the usual HTML way -->
-<% out.println("Hello World2"); %> <!-- output the same thing, but using 
+FUBAR <!-- the usual HTML way -->
+<% out.println("FUBAR"); %> <!-- output the same thing, but using 
                                       jsp programming -->
 
 									  
@@ -24,9 +24,9 @@ Hello World1 <!-- the usual HTML way -->
 <form method="post" action="show.jsp">
     <!-- note the show.jsp will be invoked when the choice is made -->
 	<!-- The next lines give HTML for radio buttons being displayed -->
-  <input type="radio" name="command" value="beers"/>Let's have a beer!
+  <input type="radio" name="command" value="football"/>Football
   <br>
-  <input type="radio" name="command" value="bars"/>Let's go to a bar!
+  <input type="radio" name="command" value="basketball"/>Basketball
     <!-- when the radio for bars is chosen, then 'command' will have value 
      | 'bars', in the show.jsp file, when you access request.parameters -->
   <br>
