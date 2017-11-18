@@ -24,12 +24,22 @@ Hello <!-- the usual HTML way -->
 <form method="post" action="show.jsp">
     <!-- note the show.jsp will be invoked when the choice is made -->
 	<!-- The next lines give HTML for radio buttons being displayed -->
-  <input type="radio" name="command" value="PlayForB"/>List of BIG10 Basketball Players!
+<input type="radio" name="command" value="PlayerData"/>List of BIG10 Players!
   <br>
   <input type="radio" name="command" value="SchoolData"/>List of BIG10 Universities!
     <!-- when the radio for bars is chosen, then 'command' will have value 
      | 'bars', in the show.jsp file, when you access request.parameters -->
   <br>
+  <input type="radio" name="command" value="FootballTeamData"/>List of BIG10 Football Teams!
+  <br>
+  <input type="radio" name="command" value="PlaysForF"/>List of BIG10 Football Players!
+  <br>
+  <input type="radio" name="command" value="BasketballTeamData"/>List of BIG10 Basketball Teams!
+  <br>
+  <input type="radio" name="command" value="PlaysForB"/>List of BIG10 Basketball Players!
+  <br>
+  
+  
   <input type="submit" value="submit" />  
 </form>
 <br>
