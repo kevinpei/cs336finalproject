@@ -38,12 +38,20 @@ Alternatively, enter a player to see their stats!
 	<td>Player Name</td><td><input type="text" name="name"></td>
 	</tr>
 	<tr>    
-	<td>Sport</td><td><input type="text" name="sport"></td>
+	<td>Sport</td><td>
+<!--  Have a dropdown menu to select the sport -->
+	<select name="sport">
+		<option value="both">Both</option>
+	  	<option value="football">Football</option>
+	  	<option value="basketball">Basketball</option>
+	</select>
+	</td>
 	</tr>
 	<tr>
 	<td>University</td><td>
 <!--  Have a dropdown menu to select the university -->
-	<select>
+	<select name="university">
+		<option value="All">All Big 10 Universities</option>
 	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
 	  	<option value="Indiana">Indiana University Bloomington</option>
 	  	<option value="Iowa">University of Iowa</option>
@@ -65,7 +73,7 @@ Alternatively, enter a player to see their stats!
 	<td>Minimum GPA</td><td><input type="text" name="gpa"></td>
 	</tr>
 	<tr>
-	<td>Hometown</td><td><input type="text" name="gpa"></td>
+	<td>Hometown</td><td><input type="text" name="hometown"></td>
 	</tr>
 	</table>
 	<br>
