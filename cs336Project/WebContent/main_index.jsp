@@ -34,6 +34,9 @@ Alternatively, enter a player to see their stats!
 <br>
 	<form method="post" action="playerData.jsp">
 	<table>
+	<tr>
+	<td>Player Name</td><td><input type="text" name="name"></td>
+	</tr>
 	<tr>    
 	<td>Sport</td><td><input type="text" name="sport"></td>
 	</tr>
@@ -59,7 +62,10 @@ Alternatively, enter a player to see their stats!
 	</td>
 	</tr>
 	<tr>
-	<td>Player Name</td><td><input type="text" name="name"></td>
+	<td>Minimum GPA</td><td><input type="text" name="gpa"></td>
+	</tr>
+	<tr>
+	<td>Hometown</td><td><input type="text" name="gpa"></td>
 	</tr>
 	</table>
 	<br>
@@ -69,12 +75,21 @@ Alternatively, enter a player to see their stats!
 
 See the stats for each university!
 <br>
-	<form method="post" action="query.jsp">
-		<select name="price" size=1>
-			<option value="3.0">Better than .500 record</option>
-			<option value="5.0">Exactly .500 record</option>
-			<option value="8.0">Worse than .500 record</option>
-		</select>&nbsp;<br> <input type="submit" value="submit">
+	<form method="post" action="schools.jsp">
+	<table>
+		<tr>
+		<td>Minimum Rank</td><td><input type="text" name="rank"></td>
+		</tr>
+		<tr>
+		<td>Minimum Enrollment</td><td><input type="text" name="enrollment"></td>
+		</tr>
+		<tr>
+		<td>Minimum SAT Scores</td><td><input type="text" name="sat"></td>
+		</tr>
+		<tr>
+		<td>Minimum Endowment</td><td><input type="text" name="endowment"></td>
+		</tr>
+	</table>
 	</form>
 <br>
 

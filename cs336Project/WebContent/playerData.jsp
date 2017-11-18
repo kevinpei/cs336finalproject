@@ -21,7 +21,7 @@
 		Statement stmt = con.createStatement();
 
 		//Populate SQL statement with an actual query. It returns a single number. The number of beers in the DB.
-		String str = "SELECT COUNT(*) as cnt FROM beers";
+		String str = "SELECT COUNT(*) as cnt FROM PlayerData";
 
 		//Run the query against the DB
 		ResultSet result = stmt.executeQuery(str);
