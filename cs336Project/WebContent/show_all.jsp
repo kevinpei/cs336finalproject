@@ -27,6 +27,18 @@
 			//Run the query against the database.
 			ResultSet result = stmt.executeQuery(str);
 			
+			//Make a button to go back
+			//Depending on the query, go back to a different index
+			//Default index to return to is the main index
+			String index = "main_index.jsp";
+			if (entity.equals("PlaysForF") || entity.equals("FootballTeamData"))
+				index = "football_index.jsp";
+			else if (entity.equals("PlaysForB") || entity.equals("BasketballTeamData"))
+				index = "basketball_index.jsp";
+			out.println("<form method=\"post\" action=\"" + index + "\">");
+			out.println("<button type=\"submit\" name=\"command\" value=\"Back\">Go back</button>");
+			out.println("<br></form><br>");
+			
 			//Make an HTML table to show the results in:
 			out.print("<table>");
 
@@ -271,7 +283,7 @@
 				} else if (entity.equals("SchoolData")) {
 					out.print("<td>" + result.getString("SPORTS EXPENSES") + "</td>");
 				} else if (entity.equals("PlaysForF")) {
-					out.print("<td>" + result.getString("FIELD GOALS") + "</td>");
+					out.print("<td>" + result.getString("FIELD_GOALS") + "</td>");
 				} else if (entity.equals("PlaysForB")){
 					out.print("<td>" + result.getString("BLOCKS") + "</td>");
 				}
@@ -282,7 +294,7 @@
 				} else if (entity.equals("SchoolData")) {
 					out.print("<td>" + result.getString("FOOTBALL REVENUE") + "</td>");
 				} else if (entity.equals("PlaysForF")) {
-					out.print("<td>" + result.getString("SCHOOLID") + "</td>");
+					out.print("<td>" + result.getString("ID_NUM") + "</td>");
 				} else if (entity.equals("PlaysForB")){
 					out.print("<td>" + result.getString("STEALS") + "</td>");
 				}
