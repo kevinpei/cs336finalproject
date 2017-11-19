@@ -30,7 +30,8 @@ Click one of the buttons below to get all the info on a certain topic.
 
 <br>
 
-Alternatively, enter a player to see their stats!
+You can filter for specific players using the fields below. Any fields that you aren't<br>
+selecting for you can leave empty. Hit submit when you're done creating your query.
 <br>
 	<form method="post" action="playerData.jsp">
 	<table>
@@ -98,26 +99,6 @@ Alternatively, enter a player to see their stats!
 	</table>
 	<br>
 	<input type="submit" value="submit">
-	</form>
-<br>
-
-See the stats for each university!
-<br>
-	<form method="post" action="schools.jsp">
-	<table>
-		<tr>
-		<td>Minimum Rank</td><td><input type="text" name="rank"></td>
-		</tr>
-		<tr>
-		<td>Minimum Enrollment</td><td><input type="text" name="enrollment"></td>
-		</tr>
-		<tr>
-		<td>Minimum SAT Scores</td><td><input type="text" name="sat"></td>
-		</tr>
-		<tr>
-		<td>Minimum Endowment</td><td><input type="text" name="endowment"></td>
-		</tr>
-	</table>
 	</form>
 <br>
 

@@ -40,7 +40,7 @@
 							}
 					break;
 					case 2: if (!entity.equals("All"))
-								str = "p.SCHOOL LIKE \"%" + entity + "%\" AND ";
+								str = "p.SCHOOL = \"" + entity + "\" AND ";
 					break;
 					case 3: if (!entity.equals(""))
 								try {
