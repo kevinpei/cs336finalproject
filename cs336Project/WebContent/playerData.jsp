@@ -12,16 +12,16 @@
 <body>
 	<%
 		List<String> list = new ArrayList<String>();
-
+	
 		try {
 
 			//Get the database connection
 			ApplicationDB db = new ApplicationDB();	
 			Connection con = db.getConnection();	
-			String[] attributes = {"name", "sport", "university", "gpa", "hometown"};
+			String[] attributes = {"name", "sport", "university", "gpa", "hometown", "major", "crimes"};
 			//Create a SQL statement
 			Statement stmt = con.createStatement();
-			String query = "SELECT * FROM PlayerData p, PlaysForB b, PlaysForF f WHERE ";
+			String query = "SELECT p.* FROM cs336project.PlayerData p WHERE ";
 			for (int i = 0; i < attributes.length; i++) {
 				//Get the combobox from the index.jsp
 				String entity = request.getParameter(attributes[i]);
@@ -29,21 +29,42 @@
 				String str = "";
 				switch (i) {
 					case 0: if (!entity.equals(""))
-								str = "p.NAME = %" + entity + "% AND ";
+								str = "p.NAME LIKE \"%" + entity + "%\" AND ";
 					break;
-					case 1: if (entity.equals("football")) 
+					case 1: if (entity.equals("football")) {
+								query = query.replace("PlayerData p", "PlayerData p, cs336project.PlaysForF f");
 								str = "p.ID_NUM = f.ID_NUM AND p.SCHOOL = f.SCHOOL AND ";
-							else if (entity.equals("basketball"))
+							} else if (entity.equals("basketball")) {
+								query = query.replace("PlayerData p", "PlayerData p, cs336project.PlaysForB b");
 								str = "p.ID_NUM = b.ID_NUM AND p.SCHOOL = b.SCHOOL AND ";
+							}
 					break;
 					case 2: if (!entity.equals("All"))
-								str = "p.SCHOOL = %" + entity + "% AND ";
+								str = "p.SCHOOL LIKE \"%" + entity + "%\" AND ";
 					break;
 					case 3: if (!entity.equals(""))
-								str = "p.GPA >= " + entity + " AND ";
+								try {
+									Double.parseDouble(entity);
+									str = "p.GPA >= " + entity + " AND ";
+								} catch (Exception e) {
+									out.print("<script>window.alert(\"Invalid number entered for GPA. Not selecting for GPA.\");</script>");
+								}
+								
 					break;
 					case 4: if (!entity.equals(""))
-								str = "p.HOMETOWN = %" + entity + "%";
+								str = "p.HOMETOWN LIKE \"%" + entity + "%\" AND ";
+					break;
+					case 5: if (!entity.equals("All Majors"))
+								str = "p.MAJOR = \"" + entity + "\" AND ";
+					break;
+					case 6: if (!entity.equals(""))
+								try {
+									Integer.parseInt(entity);
+									str = "p.CRIMES >= " + entity;
+								} catch (Exception e) {
+									out.print("<script>window.alert(\"Invalid number entered for crimes committed. Not selecting for crime number.\");</script>");
+								}
+								
 					break;
 					default: break;
 				}
@@ -53,9 +74,17 @@
 			}
 			if (query.substring(query.length() - 5).equals(" AND "))
 				query = query.substring(0, query.length() - 5);
+			if (query.substring(query.length() - 7).equals(" WHERE "))
+				query = query.substring(0, query.length() - 7);
 			System.out.println(query);
 			ResultSet result = stmt.executeQuery(query);
 			System.out.println("Successfully queried");
+			
+			//Make a button to go back
+			out.println("<form method=\"post\" action=\"main_index.jsp\">");
+			out.println("<button type=\"submit\" name=\"command\" value=\"Back\">Go back</button>");
+			out.println("<br></form><br>");
+			
 			//Make an HTML table to show the results in:
 			out.print("<table>");
 

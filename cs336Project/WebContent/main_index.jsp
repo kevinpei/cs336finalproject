@@ -57,7 +57,7 @@ Alternatively, enter a player to see their stats!
 	  	<option value="Iowa">University of Iowa</option>
 	  	<option value="Maryland">University of Maryland College Park</option>
 	  	<option value="Michigan">University of Michigan</option>
-	  	<option value="Michigan_State">Michigan State University</option>
+	  	<option value="Michigan State">Michigan State University</option>
 	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
 	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
 	  	<option value="Northwestern">Northwestern University</option>
@@ -74,6 +74,26 @@ Alternatively, enter a player to see their stats!
 	</tr>
 	<tr>
 	<td>Hometown</td><td><input type="text" name="hometown"></td>
+	</tr>
+	<tr>
+	<!--  Have a dropdown menu to select the major -->
+	<td>Major</td><td>
+	<select name="major">
+	<% String[] all_majors = {"All Majors", "Animal Science", "Biology","Business","Chemical Engineering","Civil Engineering",
+			"Communication", "Computer Engineering", "Computer Science", "Creative Writing", "Criminal Justice",
+			"Criminology", "Dance", "Economics", "Electrical Engineering", "English", "Exercise Science",
+			"Finance", "Gender Studies", "Geography", "History", "ITI", "Industrial Engineering", "Labor Studies",
+			"Mechanical Engineering", "Music", "Nutrition", "Political Science", "Psychology", "Public Policy",
+			"Sociology", "Sports Management", "Theater"}; 
+		for (String major : all_majors) {
+			out.print("<option value=\"" + major + "\">" + major + "</option>");
+		}
+		%>
+	</select>
+	</td>
+	</tr>
+	<tr>
+	<td>Minimum Crimes Committed</td><td><input type="text" name="crimes"></td>
 	</tr>
 	</table>
 	<br>
