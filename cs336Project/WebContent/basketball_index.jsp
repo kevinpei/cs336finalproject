@@ -14,16 +14,23 @@ Hello <!-- the usual HTML way -->
 <% out.println("user!"); %> <!-- output the same thing, but using 
                                       jsp programming -->
 
+Click here to get all Big 10 basketball players and schools.
+<form method="post" action="show_all.jsp">
+    <button type="submit" name="command" value="BasketballTeamData">List of Big 10 Basketball Teams</button>
+    <br>
+    <button type="submit" name="command" value="PlaysForB">List of Big 10 Basketball Players</button>
+    <br>
+</form>
+<br>
 
-
-<% out.println("Select a basketball team to see their roster!");%> 
+<% out.println("Alternatively, select a basketball team to see their roster!");%> 
 <br> 
 	<form method="post" action="bquery.jsp">
 	<table>
 	<tr>
 	<td>University</td><td>
 <!--  Have a dropdown menu to select the university -->
-	<select name="Bbb">
+	<select name="University">
 	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
 	  	<option value="Indiana">Indiana University Bloomington</option>
 	  	<option value="Iowa">University of Iowa</option>
@@ -44,8 +51,8 @@ Hello <!-- the usual HTML way -->
 	
 	<tr>
 	<td>Position</td><td>
-	<select name= "Ppp">
-		<option value = "A">Select</option>
+	<select name= "Position">
+		<option value = "A">All Positions</option>
 		<option value = "C">Center</option>
 		<option value = "G">Guard</option>
 		<option value = "F">Forward</option>
@@ -116,6 +123,7 @@ Hello <!-- the usual HTML way -->
 	<td>University</td><td>
 <!--  Have a dropdown menu to select the university -->
 	<select name="best">
+		<option value="All">All Universities</option>
 	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
 	  	<option value="Indiana">Indiana University Bloomington</option>
 	  	<option value="Iowa">University of Iowa</option>
@@ -137,7 +145,6 @@ Hello <!-- the usual HTML way -->
 	<tr>
 	<td>Position</td><td>
 	<select name= "bestp">
-		<option value = "A">Select</option>
 		<option value = "C">Center</option>
 		<option value = "G">Guard</option>
 		<option value = "F">Forward</option>

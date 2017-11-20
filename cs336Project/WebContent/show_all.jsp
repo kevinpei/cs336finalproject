@@ -138,7 +138,7 @@
 			} else if (entity.equals("PlaysForF")) {
 				out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForF PLAYTIME\">Order by Playing Time</button>");
 			}  else if (entity.equals("PlaysForB")) {
-				out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB ID_NUM\">Order by School ID Number</button>");
+				out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB PLAYTIME\">Order by Playing Time</button>");
 			}
 			out.print("</form>");
 			out.print("</td>");
@@ -155,7 +155,7 @@
 				} else if (entity.equals("PlaysForF")) {
 					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForF TACKLES\">Order by Number of Tackles</button>");
 				} else if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB PLAYTIME\">Order by Playing Time</button>");
+					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB REBOUNDS\">Order by Number of Rebounds</button>");
 				}
 				out.print("</form>");
 				out.print("</td>");
@@ -173,7 +173,7 @@
 				} else if (entity.equals("PlaysForF")) {
 					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForF TOUCHDOWNS\">Order by Number of Touchdowns</button>");
 				} else if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB REBOUNDS\">Order by Number of Rebounds</button>");
+					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB ASSISTS\">Order by Number of Assists</button>");
 				}
 				out.print("</form>");
 				out.print("</td>");
@@ -191,7 +191,7 @@
 				} else if (entity.equals("PlaysForF")) {
 					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForF FIELD_GOALS\">Order by Number of Field Goals</button>");
 				} else if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB ASSISTS\">Order by Number of Assists</button>");
+					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB BLOCKS\">Order by Number of Blocks</button>");
 				}
 				out.print("</form>");
 				out.print("</td>");
@@ -209,7 +209,7 @@
 				} else if (entity.equals("PlaysForF")) {
 					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForF ID_NUM\">Order by School ID Number</button>");
 				} else if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB BLOCKS\">Order by Number of Blocks</button>");
+					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB STEALS\">Order by Number of Steals</button>");
 				}
 				out.print("</form>");
 				out.print("</td>");
@@ -225,7 +225,7 @@
 				} else if (entity.equals("PlaysForF")) {
 					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForF DEPTH_CHART\">Order by Player Status</button>");
 				} else if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB STEALS\">Order by Number of Steals</button>");
+					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB FOULS\">Order by Number of Fouls</button>");
 				}
 				out.print("</form>");
 				out.print("</td>");
@@ -239,7 +239,7 @@
 				if (entity.equals("PlayerData")) {
 					out.print("<button type=\"submit\" name=\"command\" value=\"PlayerData ID_NUM\">Order by School ID Number</button>");
 				} else if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB FOULS\">Order by Number of Fouls</button>");
+					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB TURNOVERS\">Order by Number of Turnovers</button>");
 				}
 				out.print("</form>");
 				out.print("</td>");
@@ -253,7 +253,7 @@
 				if (entity.equals("PlayerData")) {
 					out.print("<button type=\"submit\" name=\"command\" value=\"PlayerData MAJOR\">Order Alphabetically by Major</button>");
 				} else if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB TURNOVERS\">Order by Number of Turnovers</button>");
+					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB POINTS\">Order by Number of Points Scored</button>");
 				}
 				out.print("</form>");
 				out.print("</td>");
@@ -265,7 +265,7 @@
 				out.print("<td>");
 				out.print("<form method=\"post\" action=\"show_all.jsp\">");
 				if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB POINTS\">Order by Number of Points Scored</button>");
+					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB ID_NUM\">Order by School ID Number</button>");
 				}
 				out.print("</form>");
 				out.print("</td>");
@@ -404,7 +404,7 @@
 			} else if (entity.equals("PlaysForB")){
 				out.print("<td>Points</td>");
 			}
-			out.print("</tr>");
+			
 			//Print out the thirteenth column
 			if (entity.equals("PlaysForB")) {
 				out.print("<td>School ID</td>");
@@ -555,7 +555,6 @@
 				} else if (entity.equals("PlaysForB")){
 					out.print("<td>" + result.getString("POINTS") + "</td>");
 				}
-				out.print("</tr>");
 				
 				//Print out the thirteenth column
 				if (entity.equals("PlaysForB")) {
@@ -564,6 +563,7 @@
 						id = "0" + id;
 					out.print("<td>" + id + "</td>");
 				}
+				out.print("</tr>");
 			}
 			out.print("</table>");
 			//close the connection.
