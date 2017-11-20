@@ -34,6 +34,7 @@ public class ApplicationDB {
 			//Create a connection to your DB
 			//connection = DriverManager.getConnection(connectionUrl,"cs336", "cs336test"); //change to root and mypassword
 			connection = DriverManager.getConnection(connectionUrl,"root", "mypassword");
+			System.out.println("Successful connection");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
