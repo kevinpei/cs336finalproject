@@ -11,6 +11,9 @@
 <title>Fubar</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
   <a href="football_index.jsp">Football</a>
@@ -75,7 +78,7 @@ Click here to get all Big 10 basketball players and schools.
 	</tr>
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 
@@ -97,7 +100,7 @@ Click here to get all Big 10 basketball players and schools.
 	
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 
@@ -121,7 +124,7 @@ Click here to get all Big 10 basketball players and schools.
 	
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 
@@ -166,7 +169,7 @@ Click here to get all Big 10 basketball players and schools.
 	
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 </div>

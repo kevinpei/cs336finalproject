@@ -11,6 +11,9 @@
 <title>Table</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
   <a href="football_index.jsp">Football</a>
@@ -254,12 +257,10 @@
 			
 			//Ordering options in the thirteenth row
 			//PlayerData, PlaysForF, SchoolData, BasketBallTeamData, and FootballTeamData have no more columns, so don't print any more buttons for them
-			if (!(entity.equals("BasketballTeamData") || entity.equals("FootballTeamData") || entity.equals("SchoolData") || entity.equals("PlaysForF"))) {
+			if (entity.equals("PlaysForB")) {
 				out.print("<td>");
 				out.print("<form method=\"post\" action=\"show_all.jsp\">");
-				if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB ID_NUM\">Order by School ID Number</button>");
-				}
+				out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB ID_NUM\">Order by School ID Number</button>");
 				out.print("</form>");
 				out.print("</td>");
 			}

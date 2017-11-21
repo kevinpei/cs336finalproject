@@ -10,6 +10,9 @@
 <title>Best Players</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
   <a href="football_index.jsp">Football</a>

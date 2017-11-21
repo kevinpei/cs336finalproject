@@ -11,6 +11,9 @@
 <title>Fubar</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
   <a class="active" href="football_index.jsp">Football</a>
@@ -98,7 +101,7 @@ Alternatively, select a football team to see their roster!
 	</tr>
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 
@@ -120,7 +123,7 @@ Alternatively, select a football team to see their roster!
 	
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 
@@ -144,7 +147,7 @@ Alternatively, select a football team to see their roster!
 	
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 
@@ -218,7 +221,7 @@ Alternatively, select a football team to see their roster!
 	
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 </div>

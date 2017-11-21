@@ -11,6 +11,9 @@
 <title>Fubar</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
 <div class="navigation" id="navigationbar">
   <a class="active" href="main_index.jsp">Home</a>
   <a href="football_index.jsp">Football</a>
@@ -43,9 +46,8 @@ Click one of the buttons below to get all the info on a certain topic.
 
 <br>
 
-You can filter for specific players using the fields below. Any fields that you aren't<br>
-selecting for you can leave empty. Hit submit when you're done creating your query.
-<br>
+You can filter for specific players using the fields below. Any fields that you aren't selecting for you can leave empty. Hit submit when you're done creating your query.
+<br><br>
 	<form method="post" action="playerData.jsp">
 	<table>
 	<tr>
@@ -111,7 +113,7 @@ selecting for you can leave empty. Hit submit when you're done creating your que
 	</tr>
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 
