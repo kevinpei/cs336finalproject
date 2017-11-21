@@ -6,10 +6,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
+<div class="navigation" id="navigationbar">
+  <a href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a href="basketball_index.jsp">Basketball</a>
+</div>
 	<%
 		List<String> list = new ArrayList<String>();
 	
@@ -79,11 +85,6 @@
 			System.out.println(query);
 			ResultSet result = stmt.executeQuery(query);
 			System.out.println("Successfully queried");
-			
-			//Make a button to go back
-			out.println("<form method=\"post\" action=\"main_index.jsp\">");
-			out.println("<button type=\"submit\" name=\"command\" value=\"Back\">Go back</button>");
-			out.println("<br></form><br>");
 			
 			//Make an HTML table to show the results in:
 			out.print("<table>");

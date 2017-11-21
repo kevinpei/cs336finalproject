@@ -6,10 +6,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Fubar</title>
 </head>
 <body>
+<div class="navigation" id="navigationbar">
+  <a href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a class="active" href="basketball_index.jsp">Basketball</a>
+</div>
+<div>
+<img class="football_background" src="football_player.jpg" />
+</div>
+<div>
+<img class="basketball_background" src="basketball_player.jpg" />
+</div>
+<div class="body">
+<br>
 Hello <!-- the usual HTML way -->
 <% out.println("user!"); %> <!-- output the same thing, but using 
                                       jsp programming -->
@@ -17,7 +31,6 @@ Hello <!-- the usual HTML way -->
 Click here to get all Big 10 basketball players and schools.
 <form method="post" action="show_all.jsp">
     <button type="submit" name="command" value="BasketballTeamData">List of Big 10 Basketball Teams</button>
-    <br>
     <button type="submit" name="command" value="PlaysForB">List of Big 10 Basketball Players</button>
     <br>
 </form>
@@ -156,14 +169,6 @@ Click here to get all Big 10 basketball players and schools.
 	<input type="submit" value="submit">
 	</form>
 <br>
-
-
-
-
-<form method="post" action="main_index.jsp">
-    <button type="submit" name="command" value="Back">Go back</button>
-    <br>
-</form>
-
+</div>
 </body>
 </html>
