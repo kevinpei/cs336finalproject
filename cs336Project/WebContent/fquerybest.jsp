@@ -33,16 +33,16 @@
 			str = str + "POS = \"" + position + "\" ";
 		}
 		//Remove any AND or WHERE at the end
-		if (str.substring(str.length() - 5).equals(" AND "))
-			str = str.substring(0, str.length() - 5);
-		if (str.substring(str.length() - 7).equals(" WHERE "))
-			str = str.substring(0, str.length() - 7);
+		if (str.substring(str.length() - 4).equals("AND "))
+			str = str.substring(0, str.length() - 4);
+		if (str.substring(str.length() - 6).equals("WHERE "))
+			str = str.substring(0, str.length() - 6);
 		
 		if (stat.equals("TACKLES")) {
 			str = str + "GROUP BY NAME ORDER BY TACKLES DESC";
 		} else if (stat.equals("TOUCHDOWNS")) {
 			str = str + "GROUP BY NAME ORDER BY TOUCHDOWNS DESC";
-		} else if (stat.equals("TOUCHDOWNS")) {
+		} else if (stat.equals("FIELD_GOALS")) {
 			str = str + "GROUP BY NAME ORDER BY FIELD_GOALS DESC";
 		} else {
 			str = str + "GROUP BY NAME ORDER BY SUM(TOUCHDOWNS, TACKLES, FIELD_GOALS) DESC";

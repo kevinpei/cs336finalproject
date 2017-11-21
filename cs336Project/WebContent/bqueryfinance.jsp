@@ -54,17 +54,17 @@
 		
 		//make a column 2
 		if(entity.equals("Endowment")){
-			out.print("<td>ENDOWMENT</td>");
+			out.print("<td>Endowment</td>");
 		} else if (entity.equals("Coachpay")){
-			out.print("<td>COACH'S SALARY</td>");
+			out.print("<td>Coach's Salary</td>");
 		} else if (entity.equals("Expenses")){
-			out.print("<td>SPORTSEXPENSES</td>");
+			out.print("<td>Sports Expenses</td>");
 		} //end if else
 			
 		//make a column 3
-		out.print("<td>WINS</td>");
+		out.print("<td>Wins</td>");
 		//make a column 4
-		out.print("<td>LOSSES</td>");
+		out.print("<td>Losses</td>");
 		out.print("</tr>");
 		
 
