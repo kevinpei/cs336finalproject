@@ -23,7 +23,6 @@ Click one of the buttons below to get all the info on a certain topic.
 	However, when GET is used, the submitted form data will be visible in the page address field-->
 <form method="post" action="show_all.jsp">
     <button type="submit" name="command" value="PlayerData">List of Big 10 Players</button>
-    <br>
     <button type="submit" name="command" value="SchoolData">List of Big 10 Universities</button>
     <br>
 </form>
@@ -102,11 +101,26 @@ selecting for you can leave empty. Hit submit when you're done creating your que
 	</form>
 <br>
 
-See stats for teams:
-<form method="post" action="football_index.jsp">
-    <button type="submit" name="command" value="Football">Big 10 Football Teams</button>
+Insert or Update Player Info:
+<form method="post" action="insertupdateindex.jsp">
+    <button type="submit" name="command" value="InsertUpdate">Insert or Update Player Info</button>
     <br>
 </form>
+<br>
+
+Delete a Player: 
+<form method="post" action="deleteindex.jsp">
+    <button type="submit" name="command" value="Delete">Delete a Player</button>
+    <br>
+</form>
+<br>
+
+
+See statistics by sport:
+<form method="post" action="football_index.jsp">
+    <button type="submit" name="command" value="Football">Big 10 Football Teams</button>
+</form>
+<br>
 <form method="post" action="basketball_index.jsp">
     <button type="submit" name="command" value="Basketball">Big 10 Basketball Teams</button>
     <br>

@@ -17,7 +17,6 @@ Hello <!-- the usual HTML way -->
 Click here to get all Big 10 basketball players and schools.
 <form method="post" action="show_all.jsp">
     <button type="submit" name="command" value="BasketballTeamData">List of Big 10 Basketball Teams</button>
-    <br>
     <button type="submit" name="command" value="PlaysForB">List of Big 10 Basketball Players</button>
     <br>
 </form>
