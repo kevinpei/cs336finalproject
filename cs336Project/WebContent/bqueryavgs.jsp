@@ -34,7 +34,12 @@
 
 			//Run the query against the database.
 			ResultSet result = stmt.executeQuery(str);
-			
+			%>
+			<form method="post" action="basketball_index.jsp">
+		    <button type="submit" name="command" value="Back">Go back</button>
+		    <br>
+			</form>
+			<%
 			
 			//Make an HTML table to show the results in:
 			out.print("<table>");

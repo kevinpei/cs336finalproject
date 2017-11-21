@@ -76,7 +76,6 @@ Click here to get all Big 10 basketball players and schools.
 	<td></td><td>
 <!--  Have a dropdown menu to select the university -->
 	<select name="AvgStat">
-		<option value="Select">Select</option>
 	  	<option value="Averages by Team">Averages by Team</option>
 	  	<option value="Averages by Position">Averages by Position</option>
 	</select>
@@ -100,7 +99,6 @@ Click here to get all Big 10 basketball players and schools.
 	<td></td><td>
 <!--  Have a dropdown menu to select the university -->
 	<select name="finances">
-		<option value="Select">Select</option>
 	  	<option value="Endowment">University Endowment</option>
 	  	<option value="Coachpay">Coach's Salary</option>
 	  	<option value="Expenses">Athletic Department Expenses</option>

@@ -24,13 +24,13 @@
 		String school = request.getParameter("BestUniversity");
 		String position = request.getParameter("BestPosition");
 		String stat = request.getParameter("BestStat");
-		String str = "SELECT * FROM cs336project.PlaysForF WHERE ";
+		String str = "SELECT f.* FROM cs336project.PlaysForF f WHERE ";
 
 		if (!school.equals("All")) {
-			str = str + "SCHOOL = \"" + school + "\" AND ";
+			str = str + "f.SCHOOL = \"" + school + "\" AND ";
 		}
 		if (!position.equals("All")) {
-			str = str + "POS = \"" + position + "\" ";
+			str = str + "f.POS = \"" + position + "\" ";
 		}
 		//Remove any AND or WHERE at the end
 		if (str.substring(str.length() - 4).equals("AND "))
@@ -39,18 +39,23 @@
 			str = str.substring(0, str.length() - 6);
 		
 		if (stat.equals("TACKLES")) {
-			str = str + "GROUP BY NAME ORDER BY TACKLES DESC";
+			str = str + "GROUP BY f.NAME ORDER BY f.TACKLES DESC";
 		} else if (stat.equals("TOUCHDOWNS")) {
-			str = str + "GROUP BY NAME ORDER BY TOUCHDOWNS DESC";
+			str = str + "GROUP BY f.NAME ORDER BY f.TOUCHDOWNS DESC";
 		} else if (stat.equals("FIELD_GOALS")) {
-			str = str + "GROUP BY NAME ORDER BY FIELD_GOALS DESC";
+			str = str + "GROUP BY f.NAME ORDER BY f.FIELD_GOALS DESC";
 		} else {
-			str = str + "GROUP BY NAME ORDER BY SUM(TOUCHDOWNS, TACKLES, FIELD_GOALS) DESC";
+			str = str + "GROUP BY f.NAME ORDER BY SUM(f.TOUCHDOWNS + f.TACKLES + f.FIELD_GOALS) DESC";
 		}
 			
 		//Run the query against the database.
 		ResultSet result = stmt.executeQuery(str);
-		
+		%>
+		<form method="post" action="football_index.jsp">
+	    <button type="submit" name="command" value="Back">Go back</button>
+	    <br>
+		</form>
+		<%
 		//Make an HTML table to show the results in:
 		out.print("<table>");
 				

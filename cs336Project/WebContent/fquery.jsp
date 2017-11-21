@@ -21,8 +21,8 @@
 			//Create a SQL statement
 			Statement stmt = con.createStatement();
 			//Get the selected radio button from the index.jsp
-			String entity = request.getParameter("University");
-			String ent1 = request.getParameter("Position");
+			String entity = request.getParameter("FUniversity");
+			String ent1 = request.getParameter("FPosition");
 			//Make a SELECT query from the table specified by the 'command' parameter at the index.jsp
 			String str = "SELECT * FROM cs336project.PlaysForF f WHERE ";
 			if (!entity.equals("All")) {

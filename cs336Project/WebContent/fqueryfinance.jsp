@@ -31,14 +31,19 @@
 		} else if(entity.equals("Endowment")){
 			str = "SELECT a.SCHOOL, f.ENDOWMENT, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a, cs336project.SchoolData f WHERE a.SCHOOL = f.SCHOOL GROUP BY a.SCHOOL ORDER BY f.ENDOWMENT desc limit 14";
 		} else if(entity.equals("Coachpay")){
-			str = "SELECT a.SCHOOL, a.COACH, a.BCOACHPAY, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a GROUP BY a.SCHOOL ORDER BY a.BCOACHPAY desc limit 14";
+			str = "SELECT a.SCHOOL, a.COACH, a.BCOACHPAY, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a GROUP BY a.SCHOOL ORDER BY a.FCOACHPAY desc limit 14";
 		} else { //Expenses  		if(entity.equals("Expenses")){
 			str = "SELECT a.SCHOOL, f.SPORTSEXPENSES, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a, cs336project.SchoolData f WHERE a.SCHOOL = f.SCHOOL GROUP BY a.SCHOOL ORDER BY f.SPORTSEXPENSES desc limit 14";
 		}
 
 		//Run the query against the database.
 		ResultSet result = stmt.executeQuery(str);
-		
+		%>
+		<form method="post" action="football_index.jsp">
+	    <button type="submit" name="command" value="Back">Go back</button>
+	    <br>
+		</form>
+		<%
 		
 		//Make an HTML table to show the results in:
 		out.print("<table>");
