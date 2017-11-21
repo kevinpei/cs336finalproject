@@ -38,6 +38,16 @@
 	</tr>
 	
 	<tr>
+	<td>Sport</td><td>
+	<select name= "sport">
+		<option value = "Select">Select</option>
+		<option value = "Basketball">Basketball</option>
+		<option value = "Football">Football</option>
+	</select>
+	</td>
+	</tr>
+	
+	<tr>
 	<td>Player Name</td><td><input type="text" name="name"></td>
 	</tr>
 	

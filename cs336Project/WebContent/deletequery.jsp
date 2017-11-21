@@ -24,13 +24,15 @@
 			String entity = request.getParameter("University");
 			String ent1 = request.getParameter("name");
 			String ent2 = request.getParameter("number");
-			//need a sport entity
-			
+			String ent0 = request.getParameter("sport");
+		
+			String str = null;
+			String str1 = null;
 			
 			//DELETE FROM Customers
 			//WHERE CustomerName='Alfreds Futterkiste';
 			
-			if (entity.equals("Select") || ent1.equals(" ") || ent2.equals(" ") ){
+			if (entity.equals("Select") || ent0.equals("Select") || ent1 == "" || ent2 == "" ){
 				//invalid
 				out.print("<table>");
 				out.print("<tr>");
@@ -38,7 +40,26 @@
 				
 			} else {
 				//execute deletion
+					// DELETE FROM table_name
+					// WHERE condition; 
 				
+				if (ent0.equals("Basketball")){ //name is ent1, school is entity, number is ent2 
+					str = "DELETE FROM cs336project.PlaysForB WHERE NAME = \"" + ent1 + "\" AND SCHOOL = \"" + entity + "\" AND NO = \"" + ent2 + "\"";
+					str1 = "DELETE FROM cs336project.PlayerData WHERE NAME = \"" + ent1 + "\" AND SCHOOL = \"" + entity + "\"";
+				
+				} else { //football, name is ent1, school is entity, number is ent2 
+					str = "DELETE FROM cs336project.PlaysForF WHERE NAME = \"" + ent1 + "\" AND SCHOOL = \"" + entity + "\" AND NO = \"" + ent2 + "\"";
+					str1 = "DELETE FROM cs336project.PlayerData WHERE NAME = \"" + ent1 + "\" AND SCHOOL = \"" + entity + "\"";
+			
+				} //end if else
+					
+				out.print("<table>");
+				out.print("<tr>");
+				out.print("<td>Deletion Successful</td>");
+					
+				//Run the query against the database.
+				int result = stmt.executeUpdate(str);
+				int result1 = stmt.executeUpdate(str1);
 				
 			} //end if else
 			

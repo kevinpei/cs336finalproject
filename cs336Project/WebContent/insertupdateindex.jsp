@@ -11,7 +11,8 @@
 </head>
 <body>
 
-<% out.println("Select the team that you want to add a player to and fill in the boxes!");%> 
+<% out.println("To insert a player, select the team that you want to add a player to and fill in the boxes!");%> 
+<% out.println("To update a player, enter a player's student ID number and select a school and sport!");%> 
 <br> 
 	<form method="post" action="insertupdatequery.jsp">
 	<table>
@@ -39,6 +40,17 @@
 	</tr>
 	
 	<tr>
+	<td>Sport</td><td>
+	<select name= "sport">
+		<option value = "Select">Select</option>
+		<option value = "Basketball">Basketball</option>
+		<option value = "Football">Football</option>
+	</select>
+	</td>
+	</tr>
+	
+	
+	<tr>
 	<td>Player Name</td><td><input type="text" name="name"></td>
 	</tr>
 	
@@ -49,6 +61,27 @@
 		<option value = "C">Center</option>
 		<option value = "G">Guard</option>
 		<option value = "F">Forward</option>
+		
+		<option value = "C">Center</option>
+		<option value = "CB">Corner Back</option>
+		<option value = "DB">Defensive Back</option>
+		<option value = "DE">Defensive End</option>
+		<option value = "DL">Defensive Line</option>
+		<option value = "DT">Defensive Tackle</option>
+		<option value = "FB">Full Back</option>
+		<option value = "G">Guard</option>
+		<option value = "LB">Line Backer</option>
+		<option value = "LS">Long Snapper</option>
+		<option value = "NT">Nose Tackle</option>
+		<option value = "OL">Offensive Line</option>
+		<option value = "OT">Offensive Tackle</option>
+		<option value = "P">Punter</option>
+		<option value = "PK">Place Kicker</option>
+		<option value = "QB">Quarter Back</option>
+		<option value = "RB">Running Back</option>
+		<option value = "S">Safety</option>
+		<option value = "TE">Tight End</option>
+		<option value = "WR">Wide Receiver</option>
 	</select>
 	</td>
 	</tr>
