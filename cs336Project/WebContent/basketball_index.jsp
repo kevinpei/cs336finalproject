@@ -31,6 +31,7 @@ Click here to get all Big 10 basketball players and schools.
 	<td>University</td><td>
 <!--  Have a dropdown menu to select the university -->
 	<select name="University">
+		<option value="All">All Universities</option>
 	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
 	  	<option value="Indiana">Indiana University Bloomington</option>
 	  	<option value="Iowa">University of Iowa</option>
@@ -115,7 +116,7 @@ Click here to get all Big 10 basketball players and schools.
 
 
 
-<% out.println("Find the best player on each team by position! ");%> 
+<% out.println("Find the best players on each team by position! ");%> 
 <br> 
 	<form method="post" action="bquerybest.jsp">
 	<table>

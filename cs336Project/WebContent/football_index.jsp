@@ -29,33 +29,59 @@ Click one of the buttons below to get all the info on a certain topic.
 </form>
 <br>
 
-Alternatively, enter a football player to see their stats!
-<br>
-	<form method="post" action="PlaysForF.jsp">
+Alternatively, select a football team to see their roster!
+<br> 
+	<form method="post" action="fquery.jsp">
 	<table>
 	<tr>
 	<td>University</td><td>
 <!--  Have a dropdown menu to select the university -->
-	<select>
+	<select name="FUniversity">
+		<option value="All">All Universities</option>
 	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
 	  	<option value="Indiana">Indiana University Bloomington</option>
 	  	<option value="Iowa">University of Iowa</option>
 	  	<option value="Maryland">University of Maryland College Park</option>
 	  	<option value="Michigan">University of Michigan</option>
-	  	<option value="Michigan_State">Michigan State University</option>
+	  	<option value="Michigan State">Michigan State University</option>
 	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
 	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
 	  	<option value="Northwestern">Northwestern University</option>
-	  	<option value="Ohio">The Ohio State University</option>
-	  	<option value="Penn">Penn State University</option>
+	  	<option value="Ohio State">The Ohio State University</option>
+	  	<option value="Penn State">Penn State University</option>
 	  	<option value="Purdue">Purdue University</option>
 	  	<option value="Rutgers">Rutgers University</option>
 	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
 	</select>
 	</td>
 	</tr>
+	
 	<tr>
-	<td>Player Name</td><td><input type="text" name="name"></td>
+	<td>Position</td><td>
+	<select name= "FPosition">
+		<option value = "All">All Positions</option>
+		<option value = "C">Center</option>
+		<option value = "CB">Corner Back</option>
+		<option value = "DB">Defensive Back</option>
+		<option value = "DE">Defensive End</option>
+		<option value = "DL">Defensive Line</option>
+		<option value = "DT">Defensive Tackle</option>
+		<option value = "FB">Full Back</option>
+		<option value = "G">Guard</option>
+		<option value = "LB">Line Backer</option>
+		<option value = "LS">Long Snapper</option>
+		<option value = "NT">Nose Tackle</option>
+		<option value = "OL">Offensive Line</option>
+		<option value = "OT">Offensive Tackle</option>
+		<option value = "P">Punter</option>
+		<option value = "PK">Place Kicker</option>
+		<option value = "QB">Quarter Back</option>
+		<option value = "RB">Running Back</option>
+		<option value = "S">Safety</option>
+		<option value = "TE">Tight End</option>
+		<option value = "WR">Wide Receiver</option>
+	</select>
+	</td>
 	</tr>
 	</table>
 	<br>
@@ -63,16 +89,128 @@ Alternatively, enter a football player to see their stats!
 	</form>
 <br>
 
-Query the basketball teams by record
-<br>
-	<form method="post" action="query.jsp">
-		<select name="price" size=1>
-			<option value="3.0">Better than .500 record</option>
-			<option value="5.0">Exactly .500 record</option>
-			<option value="8.0">Worse than .500 record</option>
-		</select>&nbsp;<br> <input type="submit" value="submit">
+
+
+<% out.println("Look up BIG10 Non-Athletic Average Statistics! ");%> 
+<br> 
+	<form method="post" action="fqueryavgs.jsp">
+	<table>
+	<tr>
+	<td></td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="AvgStat">
+		<option value="Select">Select</option>
+	  	<option value="Averages by Team">Averages by Team</option>
+	  	<option value="Averages by Position">Averages by Position</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="submit">
 	</form>
 <br>
+
+
+
+
+<% out.println("Finances and their relation to team record! ");%> 
+<br> 
+	<form method="post" action="bqueryfinance.jsp">
+	<table>
+	<tr>
+	<td></td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="finances">
+		<option value="Select">Select</option>
+	  	<option value="Endowment">University Endowment</option>
+	  	<option value="Coachpay">Coach's Salary</option>
+	  	<option value="Expenses">Athletic Department Expenses</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="submit">
+	</form>
+<br>
+
+
+
+<% out.println("Find the best player on each team by position and stat! ");%> 
+<br> 
+	<form method="post" action="fquerybest.jsp">
+	<table>
+	<tr>
+	<td>University</td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="BestUniversity">
+		<option value="All">All Universities</option>
+	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
+	  	<option value="Indiana">Indiana University Bloomington</option>
+	  	<option value="Iowa">University of Iowa</option>
+	  	<option value="Maryland">University of Maryland College Park</option>
+	  	<option value="Michigan">University of Michigan</option>
+	  	<option value="Michigan State">Michigan State University</option>
+	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
+	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
+	  	<option value="Northwestern">Northwestern University</option>
+	  	<option value="Ohio State">The Ohio State University</option>
+	  	<option value="Penn State">Penn State University</option>
+	  	<option value="Purdue">Purdue University</option>
+	  	<option value="Rutgers">Rutgers University</option>
+	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
+	</select>
+	</td>
+	</tr>
+	
+	<tr>
+	<td>Position</td><td>
+	<select name= "BestPosition">
+		<option value = "All">All Positions</option>
+		<option value = "C">Center</option>
+		<option value = "CB">Corner Back</option>
+		<option value = "DB">Defensive Back</option>
+		<option value = "DE">Defensive End</option>
+		<option value = "DL">Defensive Line</option>
+		<option value = "DT">Defensive Tackle</option>
+		<option value = "FB">Full Back</option>
+		<option value = "G">Guard</option>
+		<option value = "LB">Line Backer</option>
+		<option value = "LS">Long Snapper</option>
+		<option value = "NT">Nose Tackle</option>
+		<option value = "OL">Offensive Line</option>
+		<option value = "OT">Offensive Tackle</option>
+		<option value = "P">Punter</option>
+		<option value = "PK">Place Kicker</option>
+		<option value = "QB">Quarter Back</option>
+		<option value = "RB">Running Back</option>
+		<option value = "S">Safety</option>
+		<option value = "TE">Tight End</option>
+		<option value = "WR">Wide Receiver</option>
+	</select>
+	</td>
+	</tr>
+	
+	<tr>
+	<td>Stat</td><td>
+	<select name= "BestStat">
+		<option value = "All">All Stats</option>
+		<option value = "TACKLES">Tackles</option>
+		<option value = "TOUCHDOWNS">Touchdowns</option>
+		<option value = "FIELD_GOALS">Field Goals</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="submit">
+	</form>
+<br>
+
 <form method="post" action="main_index.jsp">
     <button type="submit" name="command" value="Back">Go back</button>
     <br>

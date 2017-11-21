@@ -26,9 +26,9 @@
 		String str = null;
 
 		if(ent2.equals("C") || ent2.equals("F") || ent2.equals("G")){
-			str = "SELECT a.SCHOOL, a.NAME, a.POS FROM cs336project.PlaysForB a WHERE a.SCHOOL = \"" + entity + "\" AND a.POS = \"" + ent2 + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc limit 1";
+			str = "SELECT a.* FROM cs336project.PlaysForB a WHERE a.SCHOOL = \"" + entity + "\" AND a.POS = \"" + ent2 + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc";
 		} else {
-			str = "SELECT a.SCHOOL, a.NAME, a.POS FROM cs336project.PlaysForB a WHERE a.SCHOOL = \"" + entity + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc limit 1";
+			str = "SELECT a.* FROM cs336project.PlaysForB a WHERE a.SCHOOL = \"" + entity + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc";
 		} //end if else
 			
 			
@@ -41,11 +41,24 @@
 		//make a row
 		out.print("<tr>");
 		//make a column 1
-		out.print("<td>SCHOOL</td>");
+		out.print("<td>School</td>");
 		//make a column 2
-		out.print("<td>NAME</td>");
+		out.print("<td>Name</td>");
 		//make a column 3
-		out.print("<td>POSITION</td>");
+		out.print("<td>Position</td>");
+		//make a column 4
+		out.print("<td>Playtime</td>");
+		out.print("<td>Points</td>");
+		//make a column 5
+		out.print("<td>Assists</td>");
+		//make a column 6
+		out.print("<td>Blocks</td>");
+		//make a column 7
+		out.print("<td>Rebounds</td>");
+		//make a column 8
+		out.print("<td>Steals</td>");
+		//make a column 9
+		out.print("<td>Turnovers</td>");
 		out.print("</tr>");
 		
 		//parse out the results
@@ -58,6 +71,20 @@
 			out.print("<td>" + result.getString("NAME") + "</td>");
 			//make column 3		
 			out.print("<td>" + result.getString("POS") + "</td>");
+			//make column 3		
+			out.print("<td>" + result.getString("PLAYTIME") + "</td>");
+			//make a column 4
+			out.print("<td>" + result.getString("POINTS") + "</td>");
+			//make column 5	
+			out.print("<td>" + result.getString("ASSISTS") + "</td>");
+			//make column 6	
+			out.print("<td>" + result.getString("BLOCKS") + "</td>");
+			//make a column 7
+			out.print("<td>" + result.getString("REBOUNDS") + "</td>");
+			//make column 8	
+			out.print("<td>" + result.getString("STEALS") + "</td>");
+			//make column 9	
+			out.print("<td>" + result.getString("TURNOVERS") + "</td>");
 			
 			out.print("</tr>");
 		} //end while loop

@@ -24,12 +24,17 @@
 			String entity = request.getParameter("University");
 			String ent1 = request.getParameter("Position");
 			//Make a SELECT query from the table specified by the 'command' parameter at the index.jsp
-			String str = "SELECT b.NO, b.NAME, b.POS, b.POINTS, b.ASSISTS, b.REBOUNDS, b.TURNOVERS, b.STEALS, b.FOULS FROM cs336project.PlaysForB b WHERE b.SCHOOL = \"" + entity + "\" AND ";
+			String str = "SELECT b.* FROM cs336project.PlaysForB b WHERE ";
+			if (!entity.equals("All")) {
+				str += "b.SCHOOL = \"" + entity + "\" AND ";
+			}
 			if(ent1.equals("C") || ent1.equals("F") || ent1.equals("G")){
 				str += "b.POS = \"" + ent1 + "\""; 
 			}//end position if statement
 			if (str.substring(str.length() - 5).equals(" AND "))
 				str = str.substring(0, str.length() - 5);
+			if (str.substring(str.length() - 7).equals(" WHERE "))
+				str = str.substring(0, str.length() - 7);
 			
 			//Run the query against the database.
 			ResultSet result = stmt.executeQuery(str);
@@ -50,6 +55,10 @@
 			out.print("<td>Name</td>");
 			//make a column
 			out.print("<td>Position</td>");
+			//make a column
+			out.print("<td>School</td>");
+			//make a column
+			out.print("<td>Play Time</td>");
 			
 			//make a column
 			out.print("<td>Points Scored</td>");
@@ -77,7 +86,10 @@
 				out.print("<td>" + result.getString("NAME") + "</td>");
 				//make a column
 				out.print("<td>" + result.getString("POS") + "</td>");
-				
+				//make a column
+				out.print("<td>" + result.getString("SCHOOL") + "</td>");
+				//make a column
+				out.print("<td>" + result.getString("PLAYTIME") + "</td>");
 				
 				//make a column
 				out.print("<td>" + result.getString("POINTS") + "</td>");

@@ -43,16 +43,16 @@
 			out.print("<tr>");
 			//make a column 1
 			if(entity.equals("Averages by Team")){
-				out.print("<td>SCHOOL</td>");
+				out.print("<td>School</td>");
 			} else {
-				out.print("<td>POS</td>");
+				out.print("<td>Position</td>");
 			}
 			//make a column 2
-			out.print("<td>GPA</td>");
+			out.print("<td>Average GPA</td>");
 			//make a column 3
-			out.print("<td>INJURIES</td>");
+			out.print("<td>Average Number of Injuries</td>");
 			//make a column 4
-			out.print("<td>CRIMES</td>");
+			out.print("<td>Average Number of Crimes Committed</td>");
 			out.print("</tr>");
 			
 
