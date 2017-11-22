@@ -61,20 +61,20 @@
 			//make a column
 			out.print("<th>School</th>");
 			//make a column
-			out.print("<th>Play Time</th>");
+			out.print("<th>Play Time (Minutes Per Game)</th>");
 			
 			//make a column
-			out.print("<th>Points Scored</th>");
+			out.print("<th>Points Scored (Per Game)</th>");
 			//make a column
-			out.print("<th>Assists</th>");
+			out.print("<th>Assists (Per Game)</th>");
 			//make a column
-			out.print("<th>Rebounds</th>");
+			out.print("<th>Rebounds (Per Game)</th>");
 			//make a column
-			out.print("<th>Turnovers</th>");
+			out.print("<th>Turnovers (Per Game)</th>");
 			//make a column
-			out.print("<th>Steals</th>");
+			out.print("<th>Steals (Per Game)</th>");
 			//make a column
-			out.print("<th>Fouls</th>");
+			out.print("<th>Fouls (Per Game)</th>");
 			
 			out.print("</tr>");
 			

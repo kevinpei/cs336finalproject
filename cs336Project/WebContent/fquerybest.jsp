@@ -73,13 +73,13 @@
 		out.print("<th>Position</th>");
 		//make a column
 		out.print("<th>School</th>");
-		out.print("<th>Playtime</th>");
+		out.print("<th>Playtime (Percent of the Time)</th>");
 		//make a column
-		out.print("<th>Tackles</th>");
+		out.print("<th>Tackles (Per Season)</th>");
 		//make a column
-		out.print("<th>Touchdowns</th>");
+		out.print("<th>Touchdowns (Per Season)</th>");
 		//make a column
-		out.print("<th>Field Goals</th>");
+		out.print("<th>Field Goals (Per Season)</th>");
 		//make a column
 		out.print("<th>Status</th>");
 		

@@ -8,7 +8,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Fubar</title>
+<title>Basketball</title>
 </head>
 <body>
 <div class="banner">
@@ -171,6 +171,20 @@ Click here to get all Big 10 basketball players and schools.
 	<br>
 	<input type="submit" value="Submit" class="submit">
 	</form>
+<br>
+
+Insert or Update Player Info:
+<form method="post" action="insertupdateindexbasketball.jsp">
+    <button type="submit" name="command" value="InsertUpdate">Insert or Update Player Info</button>
+    <br>
+</form>
+<br>
+
+Delete a Player: 
+<form method="post" action="deleteindex.jsp">
+    <button type="submit" name="command" value="Delete">Delete a Player</button>
+    <br>
+</form>
 <br>
 </div>
 </body>

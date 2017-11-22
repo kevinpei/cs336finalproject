@@ -8,7 +8,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Player Data</title>
 </head>
 <body>
 <div class="banner">

@@ -33,10 +33,10 @@
 		String ent2 = request.getParameter("bestp");
 		String str = null;
 
-		if(ent2.equals("C") || ent2.equals("F") || ent2.equals("G")){
+		if(!entity.equals("All")){
 			str = "SELECT a.* FROM cs336project.PlaysForB a WHERE a.SCHOOL = \"" + entity + "\" AND a.POS = \"" + ent2 + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc";
 		} else {
-			str = "SELECT a.* FROM cs336project.PlaysForB a WHERE a.SCHOOL = \"" + entity + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc";
+			str = "SELECT a.* FROM cs336project.PlaysForB a WHERE a.POS = \"" + ent2 + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc";
 		} //end if else
 			
 			
@@ -54,18 +54,18 @@
 		//make a column 3
 		out.print("<th>Position</th>");
 		//make a column 4
-		out.print("<th>Playtime</th>");
-		out.print("<th>Points</th>");
+		out.print("<th>Playtime (Minutes Per Game)</th>");
+		out.print("<th>Points (Per Game)</th>");
 		//make a column 5
-		out.print("<th>Assists</th>");
+		out.print("<th>Assists (Per Game)</th>");
 		//make a column 6
-		out.print("<th>Blocks</th>");
+		out.print("<th>Blocks (Per Game)</th>");
 		//make a column 7
-		out.print("<th>Rebounds</th>");
+		out.print("<th>Rebounds (Per Game)</th>");
 		//make a column 8
-		out.print("<th>Steals</th>");
+		out.print("<th>Steals (Per Game)</th>");
 		//make a column 9
-		out.print("<th>Turnovers</th>");
+		out.print("<th>Turnovers (Per Game)</th>");
 		out.print("</tr>");
 		
 		//parse out the results
