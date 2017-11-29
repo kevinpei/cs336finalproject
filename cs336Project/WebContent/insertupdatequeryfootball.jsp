@@ -194,7 +194,7 @@
 						ent11 = "0";
 					if (ent12.equals(""))
 						ent12 = "0";
-					str = "INSERT INTO cs336project.PlaysForF (NO, NAME, POS, SCHOOL, ID_NUM, PLAYTIME, REBOUNDS, ASSISTS, BLOCKS, STEALS, FOULS, TURNOVERS, POINTS) VALUES (" + ent3 + ", \"" + ent1 + "\", \"" + ent2 + "\", \"" + entity + "\", " + ent13 + ", 0, 0, 0, 0, 0, 0, 0, 0)";
+					str = "INSERT INTO cs336project.PlaysForF (NO, NAME, POS, SCHOOL, ID_NUM, PLAYTIME, TACKLES, TOUCHDOWNS, FIELD_GOALS, DEPTH_CHART) VALUES (" + ent3 + ", \"" + ent1 + "\", \"" + ent2 + "\", \"" + entity + "\", " + ent13 + ", 0, 0, 0, 0, \"Backup\")";
 					//insert for PlayerData
 					str1 = "INSERT INTO cs336project.PlayerData (NAME, HT, WT, CLASS, HOMETOWN, STATE, SCHOOL, GPA, CRIMES, INJURIES, ID_NUM, MAJOR) VALUES (\"" + ent1 + "\", " + ent6 + ", " + ent7 + ", \"" + ent8 + "\", \"" + ent4 + "\", \"" + ent5 + "\", \"" + entity + "\", " + ent10 + ", " + ent11 + ", " + ent12 + ", " + ent13 + ", \"" + ent9 + "\")";
 

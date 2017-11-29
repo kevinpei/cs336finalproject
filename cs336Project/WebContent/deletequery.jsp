@@ -60,20 +60,29 @@
 			if (!error.equals("")) {
 				out.print("Invalid delete. " + error);
 			} else {
-				//execute deletion
-					// DELETE FROM table_name
-					// WHERE condition; 
+				//Check to make sure that the player actually exists.
 				int id = Integer.parseInt(ent1);
-				str = "DELETE FROM cs336project.PlaysForB WHERE ID_NUM = " + id + " AND SCHOOL = \"" + entity + "\"";
-				str1 = "DELETE FROM cs336project.PlaysForF WHERE ID_NUM = " + id + " AND SCHOOL = \"" + entity + "\"";
-				str2 = "DELETE FROM cs336project.PlayerData WHERE ID_NUM = " + id + " AND SCHOOL = \"" + entity + "\""; //end if else
-				out.print("Deletion Successful.");
-					
-				//Run the query against the database.
-				int result = stmt.executeUpdate(str);
-				int result1 = stmt.executeUpdate(str1);
-				int result2 = stmt.executeUpdate(str2);
-				
+				ResultSet keyCheck = stmt.executeQuery("SELECT * FROM cs336project.PlayerData WHERE ID_NUM = " + id + " AND SCHOOL = \"" + entity + "\"");
+				boolean empty = true;
+				while (keyCheck.next()) {
+					empty = false;
+				}
+				if (empty) {
+					error += "There is no player with that School and ID. ";
+				}
+				if (!error.equals("")) {
+					out.print("Invalid delete. " + error);
+				} else {
+					str = "DELETE FROM cs336project.PlaysForB WHERE ID_NUM = " + id + " AND SCHOOL = \"" + entity + "\"";
+					str1 = "DELETE FROM cs336project.PlaysForF WHERE ID_NUM = " + id + " AND SCHOOL = \"" + entity + "\"";
+					str2 = "DELETE FROM cs336project.PlayerData WHERE ID_NUM = " + id + " AND SCHOOL = \"" + entity + "\""; //end if else
+					out.print("Deletion Successful.");
+						
+					//Run the query against the database.
+					int result = stmt.executeUpdate(str);
+					int result1 = stmt.executeUpdate(str1);
+					int result2 = stmt.executeUpdate(str2);
+				}
 			} //end if else
 			
 			
