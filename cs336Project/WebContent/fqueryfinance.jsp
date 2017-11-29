@@ -106,6 +106,7 @@
 		
 		
 		out.print("</table>");
+		out.print("<img src=\"football_funding_win_ratio.png\" />");
 		//close the connection.
 		con.close();
 		
