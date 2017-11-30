@@ -6,12 +6,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>show.jsp Window</title>
+<title>All Data</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
+<div class="navigation" id="navigationbar">
+  <a href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a href="basketball_index.jsp">Basketball</a>
+</div>
 	<%
-	    
 		try {
 	
 			//Get the database connection
@@ -31,20 +39,8 @@
 			//Run the query against the database.
 			ResultSet result = stmt.executeQuery(str);
 			
-			//Make a button to go back
-			//Depending on the query, go back to a different index
-			//Default index to return to is the main index
-			String index = "main_index.jsp";
-			if (entity.equals("PlaysForF") || entity.equals("FootballTeamData"))
-				index = "football_index.jsp";
-			else if (entity.equals("PlaysForB") || entity.equals("BasketballTeamData"))
-				index = "basketball_index.jsp";
-			out.println("<form method=\"post\" action=\"" + index + "\">");
-			out.println("<button type=\"submit\" name=\"command\" value=\"Back\">Go back</button>");
-			out.println("<br></form><br>");
-			
 			//Make an HTML table to show the results in:
-			out.print("<table>");
+			out.print("<table id=\"data\">");
 			//Make a row for buttons to order everything by
 			out.print("<tr>");
 					
@@ -233,7 +229,7 @@
 			
 			//Ordering options in the eleventh row
 			//SchoolData, BasketBallTeamData, and FootballTeamData have no more columns, so don't print any more buttons for them
-			if (!(entity.equals("BasketballTeamData") || entity.equals("FootballTeamData") || entity.equals("SchoolData"))) {
+			if (!(entity.equals("BasketballTeamData") || entity.equals("FootballTeamData") || entity.equals("SchoolData") || entity.equals("PlaysForF"))) {
 				out.print("<td>");
 				out.print("<form method=\"post\" action=\"show_all.jsp\">");
 				if (entity.equals("PlayerData")) {
@@ -261,35 +257,33 @@
 			
 			//Ordering options in the thirteenth row
 			//PlayerData, PlaysForF, SchoolData, BasketBallTeamData, and FootballTeamData have no more columns, so don't print any more buttons for them
-			if (!(entity.equals("BasketballTeamData") || entity.equals("FootballTeamData") || entity.equals("SchoolData") || entity.equals("PlaysForF"))) {
+			if (entity.equals("PlaysForB")) {
 				out.print("<td>");
 				out.print("<form method=\"post\" action=\"show_all.jsp\">");
-				if (entity.equals("PlaysForB")) {
-					out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB ID_NUM\">Order by School ID Number</button>");
-				}
+				out.print("<button type=\"submit\" name=\"command\" value=\"PlaysForB ID_NUM\">Order by School ID Number</button>");
 				out.print("</form>");
 				out.print("</td>");
 			}
-			
-			//make a row
+			out.print("</tr>");
+			//make a table header
 			out.print("<tr>");
 			
 			//Depending on the radio button selection make different headers for each table
 			
 			//print out column headers
 			//Print out the first column
-			out.print("<td>");
+			out.print("<th>");
 			if (entity.equals("PlaysForF") || entity.equals("PlaysForB")) {
 				out.print("Number");
 			} else {
 				out.print("Name");
 			}
-			out.print("</td>");
+			out.print("</th>");
 			
 			//Print out the second column
-			out.print("<td>");
+			out.print("<th>");
 			if (entity.equals("PlayerData")) {
-				out.print("Height");
+				out.print("Height (in)");
 			} else if (entity.equals("SchoolData")) {
 				out.print("Rank");
 			} else if (entity.equals("PlaysForF") || entity.equals("PlaysForB")) {
@@ -297,12 +291,12 @@
 			} else {
 				out.print("Coach");
 			}
-			out.print("</td>");
+			out.print("</th>");
 			
 			//Print out the third column
-			out.print("<td>");
+			out.print("<th>");
 			if (entity.equals("PlayerData")) {
-				out.print("Weight");
+				out.print("Weight (lb)");
 			} else if (entity.equals("SchoolData")) {
 				out.print("Enrollment");
 			} else if (entity.equals("PlaysForF") || entity.equals("PlaysForB")) {
@@ -310,10 +304,10 @@
 			} else {
 				out.print("Coach's Pay");
 			}
-			out.print("</td>");
+			out.print("</th>");
 			
 			//Print out the fourth column
-			out.print("<td>");
+			out.print("<th>");
 			if (entity.equals("PlayerData")) {
 				out.print("Class");
 			} else if (entity.equals("SchoolData")) {
@@ -323,91 +317,93 @@
 			} else {
 				out.print("2016 Wins");
 			}
-			out.print("</td>");
+			out.print("</th>");
 			
 			//Print out the fifth column
-			out.print("<td>");
+			out.print("<th>");
 			if (entity.equals("PlayerData")) {
 				out.print("Hometown");
 			} else if (entity.equals("SchoolData")) {
 				out.print("Average ACT Score");
-			} else if (entity.equals("PlaysForF") || entity.equals("PlaysForB")) {
-				out.print("Play Time");
+			} else if (entity.equals("PlaysForB")) {
+				out.print("Play Time (Minutes per Game)");
+			} else if (entity.equals("PlaysForF")){
+				out.print("Play Time (Percent of the Time)");
 			} else {
 				out.print("2016 Losses");
 			}
-			out.print("</td>");
+			out.print("</th>");
 			
 			//Print out the sixth column
 			if (entity.equals("PlayerData")) {
-				out.print("<td>State</td>");
+				out.print("<th>State</th>");
 			} else if (entity.equals("SchoolData")) {
-				out.print("<td>Acceptance Rate</td>");
+				out.print("<th>Acceptance Rate</th>");
 			} else if (entity.equals("PlaysForF")) {
-				out.print("<td>Tackles</td>");
+				out.print("<th>Tackles (Per Season)</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<td>Rebounds</td>");
+				out.print("<th>Rebounds (Per Game)</th>");
 			}
 			
 			//Print out the seventh column
 			if (entity.equals("PlayerData")) {
-				out.print("<td>School</td>");
+				out.print("<th>School</th>");
 			} else if (entity.equals("SchoolData")) {
-				out.print("<td>Endowment</td>");
+				out.print("<th>Endowment</th>");
 			} else if (entity.equals("PlaysForF")) {
-				out.print("<td>Touchdowns</td>");
+				out.print("<th>Touchdowns (Per Season)</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<td>Assists</td>");
+				out.print("<th>Assists (Per Game)</th>");
 			}
 			
 			//Print out the eighth column
 			if (entity.equals("PlayerData")) {
-				out.print("<td>GPA</td>");
+				out.print("<th>GPA</th>");
 			} else if (entity.equals("SchoolData")) {
-				out.print("<td>Sports Expenses</td>");
+				out.print("<th>Sports Expenses</th>");
 			} else if (entity.equals("PlaysForF")) {
-				out.print("<td>Field Goals</td>");
+				out.print("<th>Field Goals (Per Season)</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<td>Blocks</td>");
+				out.print("<th>Blocks (Per Game)</th>");
 			}
 			
 			//Print out the ninth column
 			if (entity.equals("PlayerData")) {
-				out.print("<td>Crimes Committed</td>");
+				out.print("<th>Crimes Committed</th>");
 			} else if (entity.equals("SchoolData")) {
-				out.print("<td>Football Revenue</td>");
+				out.print("<th>Football Revenue</th>");
 			} else if (entity.equals("PlaysForF")) {
-				out.print("<td>School ID</td>");
+				out.print("<th>School ID</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<td>Steals</td>");
+				out.print("<th>Steals (Per Game)</th>");
 			}
 			
 			//Print out the tenth column
 			if (entity.equals("PlayerData")) {
-				out.print("<td>Injuries</td>");
+				out.print("<th>Injuries</th>");
 			} else if (entity.equals("PlaysForF")) {
-				out.print("<td>Player Status</td>");
+				out.print("<th>Player Status</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<td>Fouls</td>");
+				out.print("<th>Fouls (Per Game)</th>");
 			}
 			
 			//Print out the eleventh column
 			if (entity.equals("PlayerData")) {
-				out.print("<td>School ID</td>");
+				out.print("<th>School ID</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<td>Turnovers</td>");
+				out.print("<th>Turnovers (Per Game)</th>");
 			}
 			
 			//Print out the twelfth column
 			if (entity.equals("PlayerData")) {
-				out.print("<td>Major</td>");
+				out.print("<th>Major</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<td>Points</td>");
+				out.print("<th>Points (Per Game)</th>");
 			}
 			
 			//Print out the thirteenth column
 			if (entity.equals("PlaysForB")) {
-				out.print("<td>School ID</td>");
+				out.print("<th>School ID</th>");
 			}
 			
 			out.print("</tr>");

@@ -6,10 +6,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Fubar</title>
+<title>FUBAR</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
+<div class="navigation" id="navigationbar">
+  <a class="active" href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a href="basketball_index.jsp">Basketball</a>
+</div>
+<div>
+<img class="football_background" src="football_player.jpg" />
+</div>
+<div>
+<img class="basketball_background" src="basketball_player.jpg" />
+</div>
+<div class="body">
+<br>
 Hello <!-- the usual HTML way -->
 <% out.println("user!"); %> <!-- output the same thing, but using 
                                       jsp programming -->
@@ -29,9 +46,8 @@ Click one of the buttons below to get all the info on a certain topic.
 
 <br>
 
-You can filter for specific players using the fields below. Any fields that you aren't<br>
-selecting for you can leave empty. Hit submit when you're done creating your query.
-<br>
+You can filter for specific players using the fields below. Any fields that you aren't selecting for you can leave empty. Hit submit when you're done creating your query.
+<br><br>
 	<form method="post" action="playerData.jsp">
 	<table>
 	<tr>
@@ -97,34 +113,10 @@ selecting for you can leave empty. Hit submit when you're done creating your que
 	</tr>
 	</table>
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
 
-Insert or Update Player Info:
-<form method="post" action="insertupdateindex.jsp">
-    <button type="submit" name="command" value="InsertUpdate">Insert or Update Player Info</button>
-    <br>
-</form>
-<br>
-
-Delete a Player: 
-<form method="post" action="deleteindex.jsp">
-    <button type="submit" name="command" value="Delete">Delete a Player</button>
-    <br>
-</form>
-<br>
-
-
-See statistics by sport:
-<form method="post" action="football_index.jsp">
-    <button type="submit" name="command" value="Football">Big 10 Football Teams</button>
-</form>
-<br>
-<form method="post" action="basketball_index.jsp">
-    <button type="submit" name="command" value="Basketball">Big 10 Basketball Teams</button>
-    <br>
-</form>
-
+</div>
 </body>
 </html>

@@ -5,11 +5,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Team Averages</title>
 </head>
 <body>
-
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
+<div class="navigation" id="navigationbar">
+  <a href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a href="basketball_index.jsp">Basketball</a>
+</div>
 	<% 
 	
 	try {
@@ -34,30 +42,24 @@
 
 			//Run the query against the database.
 			ResultSet result = stmt.executeQuery(str);
-			%>
-			<form method="post" action="basketball_index.jsp">
-		    <button type="submit" name="command" value="Back">Go back</button>
-		    <br>
-			</form>
-			<%
 			
 			//Make an HTML table to show the results in:
-			out.print("<table>");
+			out.print("<table id=\"data\">");
 			
 			//make a row
 			out.print("<tr>");
 			//make a column 1
 			if(entity.equals("Averages by Team")){
-				out.print("<td>School</td>");
+				out.print("<th>School</th>");
 			} else {
-				out.print("<td>Position</td>");
+				out.print("<th>Position</th>");
 			}
 			//make a column 2
-			out.print("<td>Average GPA</td>");
+			out.print("<th>Average GPA</th>");
 			//make a column 3
-			out.print("<td>Average Number of Injuries</td>");
+			out.print("<th>Average Number of Injuries</th>");
 			//make a column 4
-			out.print("<td>Average Number of Crimes Committed</td>");
+			out.print("<th>Average Number of Crimes Committed</th>");
 			out.print("</tr>");
 			
 

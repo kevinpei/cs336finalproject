@@ -3,14 +3,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Deletion</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
+<div class="navigation" id="navigationbar">
+  <a href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a href="basketball_index.jsp">Basketball</a>
+</div>
+<div>
+<img class="football_background" src="football_player.jpg" />
+</div>
+<div>
+<img class="basketball_background" src="basketball_player.jpg" />
+</div>
+<div class="body">
+<br>
 
 
-
-<% out.println("Enter a players name, jersey number and school to delete them!");%> 
+<% out.println("Enter a player's school and school ID to delete them!");%> 
 <br> 
 	<form method="post" action="deletequery.jsp">
 	<table>
@@ -18,7 +34,6 @@
 	<td>University</td><td>
 <!--  Have a dropdown menu to select the university -->
 	<select name="University">
-		<option value="Select">Select</option>
 	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
 	  	<option value="Indiana">Indiana University Bloomington</option>
 	  	<option value="Iowa">University of Iowa</option>
@@ -38,31 +53,17 @@
 	</tr>
 	
 	<tr>
-	<td>Sport</td><td>
-	<select name= "sport">
-		<option value = "Select">Select</option>
-		<option value = "Basketball">Basketball</option>
-		<option value = "Football">Football</option>
-	</select>
-	</td>
-	</tr>
-	
-	<tr>
-	<td>Player Name</td><td><input type="text" name="name"></td>
-	</tr>
-	
-	<tr>
-	<td>Jersey Number</td><td><input type="int" name="number"></td>
+	<td>School ID</td><td><input type="text" name="id"></td>
 	</tr>
 	
 	</table>
 	<br>
-	<input type="submit" value="Delete" name="Delete">
+	<input type="submit" value="Delete" class="submit" name="Delete">
 	</form>
 	
 <br>
 
 
-
+</div>
 </body>
 </html>

@@ -5,10 +5,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Best Players</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
+<div class="navigation" id="navigationbar">
+  <a href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a href="basketball_index.jsp">Basketball</a>
+</div>
 
 <%
 
@@ -50,34 +59,29 @@
 			
 		//Run the query against the database.
 		ResultSet result = stmt.executeQuery(str);
-		%>
-		<form method="post" action="football_index.jsp">
-	    <button type="submit" name="command" value="Back">Go back</button>
-	    <br>
-		</form>
-		<%
+
 		//Make an HTML table to show the results in:
-		out.print("<table>");
+		out.print("<table id=\"data\">");
 				
 		//make a row
 		out.print("<tr>");
 		//make a column 1
-		out.print("<td>Player Number</td>");
+		out.print("<th>Player Number</th>");
 		//make a column
-		out.print("<td>Name</td>");
+		out.print("<th>Name</th>");
 		//make a column
-		out.print("<td>Position</td>");
+		out.print("<th>Position</th>");
 		//make a column
-		out.print("<td>School</td>");
-		out.print("<td>Playtime</td>");
+		out.print("<th>School</th>");
+		out.print("<th>Playtime (Percent of the Time)</th>");
 		//make a column
-		out.print("<td>Tackles</td>");
+		out.print("<th>Tackles (Per Season)</th>");
 		//make a column
-		out.print("<td>Touchdowns</td>");
+		out.print("<th>Touchdowns (Per Season)</th>");
 		//make a column
-		out.print("<td>Field Goals</td>");
+		out.print("<th>Field Goals (Per Season)</th>");
 		//make a column
-		out.print("<td>Status</td>");
+		out.print("<th>Status</th>");
 		
 		out.print("</tr>");
 		

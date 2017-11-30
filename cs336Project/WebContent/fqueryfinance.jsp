@@ -5,10 +5,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Finances vs. Performance</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
+<div class="navigation" id="navigationbar">
+  <a href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a href="basketball_index.jsp">Basketball</a>
+</div>
 
 <%
 
@@ -31,45 +40,39 @@
 		} else if(entity.equals("Endowment")){
 			str = "SELECT a.SCHOOL, f.ENDOWMENT, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a, cs336project.SchoolData f WHERE a.SCHOOL = f.SCHOOL GROUP BY a.SCHOOL ORDER BY f.ENDOWMENT desc limit 14";
 		} else if(entity.equals("Coachpay")){
-			str = "SELECT a.SCHOOL, a.COACH, a.BCOACHPAY, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a GROUP BY a.SCHOOL ORDER BY a.FCOACHPAY desc limit 14";
+			str = "SELECT a.SCHOOL, a.COACH, a.FCOACHPAY, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a GROUP BY a.SCHOOL ORDER BY a.FCOACHPAY desc limit 14";
 		} else { //Expenses  		if(entity.equals("Expenses")){
 			str = "SELECT a.SCHOOL, f.SPORTSEXPENSES, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a, cs336project.SchoolData f WHERE a.SCHOOL = f.SCHOOL GROUP BY a.SCHOOL ORDER BY f.SPORTSEXPENSES desc limit 14";
 		}
 
 		//Run the query against the database.
 		ResultSet result = stmt.executeQuery(str);
-		%>
-		<form method="post" action="football_index.jsp">
-	    <button type="submit" name="command" value="Back">Go back</button>
-	    <br>
-		</form>
-		<%
 		
 		//Make an HTML table to show the results in:
-		out.print("<table>");
+		out.print("<table id=\"data\">");
 		
 		//make a row
 		out.print("<tr>");
 		//make a column 1
-		out.print("<td>SCHOOL</td>");
+		out.print("<th>SCHOOL</th>");
 		
 		if (entity.equals("Coachpay")){
-			out.print("<td>COACH</td>");
+			out.print("<th>COACH</th>");
 		}
 		
 		//make a column 2
 		if(entity.equals("Endowment")){
-			out.print("<td>Endowment</td>");
+			out.print("<th>Endowment</th>");
 		} else if (entity.equals("Coachpay")){
-			out.print("<td>Coach's Salary</td>");
+			out.print("<th>Coach's Salary</th>");
 		} else if (entity.equals("Expenses")){
-			out.print("<td>Sports Expenses</td>");
+			out.print("<th>Sports Expenses</th>");
 		} //end if else
 			
 		//make a column 3
-		out.print("<td>Wins</td>");
+		out.print("<th>Wins</th>");
 		//make a column 4
-		out.print("<td>Losses</td>");
+		out.print("<th>Losses</th>");
 		out.print("</tr>");
 		
 
@@ -102,7 +105,23 @@
 		} //end while loop
 		
 		
-		out.print("</table>");
+		if(entity.equals("Select")){
+			con.close();
+			
+		} else if(entity.equals("Endowment")){
+			out.print("</table>");
+			//out.print("<img src=\"football_funding_win_ratio.png\" />");
+			
+		} else if(entity.equals("Coachpay")){
+			out.print("</table>");
+			out.print("<img src=\"football wl coach pay.PNG\" />");
+			
+		} else { //Expenses  		if(entity.equals("Expenses")){
+			out.print("</table>");
+			out.print("<img src=\"football_funding_win_ratio.png\" />");
+			
+		} //end if else
+		
 		//close the connection.
 		con.close();
 		

@@ -8,7 +8,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Basketball</title>
+<title>For Administrators</title>
 </head>
 <body>
 <div class="banner">
@@ -17,7 +17,9 @@
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
   <a href="football_index.jsp">Football</a>
-  <a class="active" href="basketball_index.jsp">Basketball</a>
+  <a href="basketball_index.jsp">Basketball</a>
+  <a class="active" href="administrator_index.jsp">For Administrators</a>
+  <a href="fan_index.jsp">For Fans</a>
 </div>
 <div>
 <img class="football_background" src="football_player.jpg" />
@@ -27,19 +29,11 @@
 </div>
 <div class="body">
 <br>
-Hello <!-- the usual HTML way -->
-<% out.println("user!"); %> <!-- output the same thing, but using 
-                                      jsp programming -->
+Hello administrator. This section of the website is for those who want to improve the performance of their teams for the least cost.
+Choose one of the queries below to improve the performance for either your football or basketball team.
 
-Click here to get all Big 10 basketball players and schools.
-<form method="post" action="show_all.jsp">
-    <button type="submit" name="command" value="BasketballTeamData">List of Big 10 Basketball Teams</button>
-    <button type="submit" name="command" value="PlaysForB">List of Big 10 Basketball Players</button>
-    <br>
-</form>
 <br>
 
-<% out.println("Alternatively, select a basketball team to see their roster!");%> 
 <br> 
 	<form method="post" action="bquery.jsp">
 	<table>
@@ -118,41 +112,6 @@ Click here to get all Big 10 basketball players and schools.
 	  	<option value="Endowment">University Endowment</option>
 	  	<option value="Coachpay">Coach's Salary</option>
 	  	<option value="Expenses">Athletic Department Expenses</option>
-	</select>
-	</td>
-	</tr>
-	
-	</table>
-	<br>
-	<input type="submit" value="Submit" class="submit">
-	</form>
-<br>
-
-
-
-<% out.println("Select a school to see which states most of their players are from!");%> 
-<br> 
-	<form method="post" action="bqueryhomestate.jsp">
-	<table>
-	<tr>
-	<td></td><td>
-<!--  Have a dropdown menu to select the university -->
-	<select name="University">
-		<option value="Select">Select</option>
-	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
-	  	<option value="Indiana">Indiana University Bloomington</option>
-	  	<option value="Iowa">University of Iowa</option>
-	  	<option value="Maryland">University of Maryland College Park</option>
-	  	<option value="Michigan">University of Michigan</option>
-	  	<option value="Michigan State">Michigan State University</option>
-	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
-	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
-	  	<option value="Northwestern">Northwestern University</option>
-	  	<option value="Ohio State">The Ohio State University</option>
-	  	<option value="Penn State">Penn State University</option>
-	  	<option value="Purdue">Purdue University</option>
-	  	<option value="Rutgers">Rutgers University</option>
-	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
 	</select>
 	</td>
 	</tr>

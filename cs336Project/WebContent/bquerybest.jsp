@@ -5,11 +5,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Best Players</title>
 </head>
 <body>
-
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
+<div class="navigation" id="navigationbar">
+  <a href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a href="basketball_index.jsp">Basketball</a>
+</div>
 <%
 
 	try {
@@ -25,45 +33,39 @@
 		String ent2 = request.getParameter("bestp");
 		String str = null;
 
-		if(ent2.equals("C") || ent2.equals("F") || ent2.equals("G")){
+		if(!entity.equals("All")){
 			str = "SELECT a.* FROM cs336project.PlaysForB a WHERE a.SCHOOL = \"" + entity + "\" AND a.POS = \"" + ent2 + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc";
 		} else {
-			str = "SELECT a.* FROM cs336project.PlaysForB a WHERE a.SCHOOL = \"" + entity + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc";
+			str = "SELECT a.* FROM cs336project.PlaysForB a WHERE a.POS = \"" + ent2 + "\" GROUP BY a.NAME ORDER BY SUM(a.POINTS + a.ASSISTS + a.BLOCKS + a.REBOUNDS + a.STEALS - a.TURNOVERS) desc";
 		} //end if else
 			
 			
 		//Run the query against the database.
 		ResultSet result = stmt.executeQuery(str);
-		%>
-		<form method="post" action="basketball_index.jsp">
-	    <button type="submit" name="command" value="Back">Go back</button>
-	    <br>
-		</form>
-		<%
 		//Make an HTML table to show the results in:
-		out.print("<table>");
+		out.print("<table id=\"data\">");
 				
 		//make a row
 		out.print("<tr>");
 		//make a column 1
-		out.print("<td>School</td>");
+		out.print("<th>School</th>");
 		//make a column 2
-		out.print("<td>Name</td>");
+		out.print("<th>Name</th>");
 		//make a column 3
-		out.print("<td>Position</td>");
+		out.print("<th>Position</th>");
 		//make a column 4
-		out.print("<td>Playtime</td>");
-		out.print("<td>Points</td>");
+		out.print("<th>Playtime (Minutes Per Game)</th>");
+		out.print("<th>Points (Per Game)</th>");
 		//make a column 5
-		out.print("<td>Assists</td>");
+		out.print("<th>Assists (Per Game)</th>");
 		//make a column 6
-		out.print("<td>Blocks</td>");
+		out.print("<th>Blocks (Per Game)</th>");
 		//make a column 7
-		out.print("<td>Rebounds</td>");
+		out.print("<th>Rebounds (Per Game)</th>");
 		//make a column 8
-		out.print("<td>Steals</td>");
+		out.print("<th>Steals (Per Game)</th>");
 		//make a column 9
-		out.print("<td>Turnovers</td>");
+		out.print("<th>Turnovers (Per Game)</th>");
 		out.print("</tr>");
 		
 		//parse out the results

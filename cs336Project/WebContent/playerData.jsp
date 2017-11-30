@@ -6,10 +6,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Player Data</title>
 </head>
 <body>
+<div class="banner">
+	<img src="FUBAR.jpg" />
+</div>
+<div class="navigation" id="navigationbar">
+  <a href="main_index.jsp">Home</a>
+  <a href="football_index.jsp">Football</a>
+  <a href="basketball_index.jsp">Basketball</a>
+</div>
 	<%
 		List<String> list = new ArrayList<String>();
 	
@@ -80,40 +89,35 @@
 			ResultSet result = stmt.executeQuery(query);
 			System.out.println("Successfully queried");
 			
-			//Make a button to go back
-			out.println("<form method=\"post\" action=\"main_index.jsp\">");
-			out.println("<button type=\"submit\" name=\"command\" value=\"Back\">Go back</button>");
-			out.println("<br></form><br>");
-			
 			//Make an HTML table to show the results in:
-			out.print("<table>");
+			out.print("<table id=\"data\">");
 
 			//make a row
 			out.print("<tr>");
 			//make a column
-			out.print("<td>Name</td>");
+			out.print("<th>Name</th>");
 			//make a column
-			out.print("<td>Height</td>");
+			out.print("<th>Height</th>");
 			//make a column
-			out.print("<td>Weight</td>");
+			out.print("<th>Weight</th>");
 			//make a column
-			out.print("<td>Class</td>");
+			out.print("<th>Class</th>");
 			//make a column
-			out.print("<td>Hometown</td>");
+			out.print("<th>Hometown</th>");
 			//make a column
-			out.print("<td>State</td>");
+			out.print("<th>State</th>");
 			//make a column
-			out.print("<td>School</td>");
+			out.print("<th>School</th>");
 			//make a column
-			out.print("<td>GPA</td>");
+			out.print("<th>GPA</th>");
 			//make a column
-			out.print("<td>Crimes Committed</td>");
+			out.print("<th>Crimes Committed</th>");
 			//make a column
-			out.print("<td>Injuries</td>");
+			out.print("<th>Injuries</th>");
 			//make a column
-			out.print("<td>School ID</td>");
+			out.print("<th>School ID</th>");
 			//make a column
-			out.print("<td>Major</td>");
+			out.print("<th>Major</th>");
 			out.print("</tr>");
 
 			//parse out the results
