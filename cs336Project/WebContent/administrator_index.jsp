@@ -33,46 +33,13 @@ Hello administrator. This section of the website is for those who want to improv
 Choose one of the queries below to improve the performance for either your football or basketball team.
 
 <br>
-
+Is it better to have players in more positions?
 <br> 
-	<form method="post" action="bquery.jsp">
-	<table>
-	<tr>
-	<td>University</td><td>
-<!--  Have a dropdown menu to select the university -->
-	<select name="University">
-		<option value="All">All Universities</option>
-	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
-	  	<option value="Indiana">Indiana University Bloomington</option>
-	  	<option value="Iowa">University of Iowa</option>
-	  	<option value="Maryland">University of Maryland College Park</option>
-	  	<option value="Michigan">University of Michigan</option>
-	  	<option value="Michigan State">Michigan State University</option>
-	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
-	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
-	  	<option value="Northwestern">Northwestern University</option>
-	  	<option value="Ohio State">The Ohio State University</option>
-	  	<option value="Penn State">Penn State University</option>
-	  	<option value="Purdue">Purdue University</option>
-	  	<option value="Rutgers">Rutgers University</option>
-	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
-	</select>
-	</td>
-	</tr>
-	
-	<tr>
-	<td>Position</td><td>
-	<select name= "Position">
-		<option value = "A">All Positions</option>
-		<option value = "C">Center</option>
-		<option value = "G">Guard</option>
-		<option value = "F">Forward</option>
-	</select>
-	</td>
-	</tr>
-	</table>
-	<br>
-	<input type="submit" value="Submit" class="submit">
+	<form method="post" action="basketball_positions.jsp">
+	<input type="submit" value="Basketball" class="submit">
+	</form>
+	<form method="post" action="football_positions.jsp">
+	<input type="submit" value="Football" class="submit">
 	</form>
 <br>
 

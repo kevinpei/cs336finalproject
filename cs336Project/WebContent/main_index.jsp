@@ -18,6 +18,8 @@
   <a class="active" href="main_index.jsp">Home</a>
   <a href="football_index.jsp">Football</a>
   <a href="basketball_index.jsp">Basketball</a>
+  <a href="administrator_index.jsp">For Administrators</a>
+  <a href="fan_index.jsp">For Fans</a>
 </div>
 <div>
 <img class="football_background" src="football_player.jpg" />
