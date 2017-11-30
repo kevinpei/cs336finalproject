@@ -31,30 +31,39 @@
 <br>
 Hello administrator. This section of the website is for those who want to improve the performance of their teams for the least cost.
 Choose one of the queries below to improve the performance for either your football or basketball team.
-
 <br>
-Is it better to have players in more positions?
+<br>
+In football, there are tackles, touchdowns, and field goals. Which of these most determines the win/loss ratio of a team?<br><br>
+Why not find out? The following options allow you to see how the average number of tackles, touchdowns, or field goals per game of each school
+in the Big 10 compare to their win/loss ratio. The totals were obtained by adding together the average number of tackles, touchdowns, or field goals
+per game for each player.
 <br> 
-	<form method="post" action="basketball_positions.jsp">
-	<input type="submit" value="Basketball" class="submit">
-	</form>
-	<form method="post" action="football_positions.jsp">
-	<input type="submit" value="Football" class="submit">
+	<form method="post" action="football_stats_vs_wins.jsp">
+	<select name="Stat">
+	  	<option value="Tackles">Average Tackles Per Game by a Team vs. Their Win Loss Ratio</option>
+	  	<option value="Touchdowns">Average Touchdowns Per Game by a Team vs. Their Win Loss Ratio</option>
+	  	<option value="Field Goals">Average Field Goals Per Game by a Team vs. Their Win Loss Ratio</option>
+	</select>
+	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
-
-
-
-<% out.println("Look up BIG10 Non-Athletic Average Statistics! ");%> 
+<br>
+In football, there are 21 different positions: <br>DE, Defensive End<br>QB, Quarter Back<br>RB, Running Back<br>LB, Line Backer 
+<br>DL, Defensive Line<br>TE, Tight End<br>DB, Defensive Back<br>OL, Offensive Line<br>P, Punter<br>LS, Long Snapper<br>PK, Place Kicker
+<br>CB, Corner Back<br>DT, Defensive Tackle<br>HB, Half Back<br>FB, Full Back<br>OT, Offensive Tackle<br>S, Safety<br>G, Guard
+<br>C, Center<br>WR, Wide Receiver<br>NT, Nose Tackle
+<br>Each of these positions plays a different role and contributes a different number of tackles, touchdowns, and field goals.
+Now let's see how much each position contributes.
 <br> 
-	<form method="post" action="bqueryavgs.jsp">
+	<form method="post" action="football_stats_per_position.jsp">
 	<table>
 	<tr>
 	<td></td><td>
 <!--  Have a dropdown menu to select the university -->
-	<select name="AvgStat">
-	  	<option value="Averages by Team">Averages by Team</option>
-	  	<option value="Averages by Position">Averages by Position</option>
+	<select name="OrderingStat">
+	  	<option value="Tackles">Order by Tackles</option>
+	  	<option value="Touchdowns">Order by Touchdowns</option>
+	  	<option value="Field Goals">Order by Field Goals</option>
 	</select>
 	</td>
 	</tr>
