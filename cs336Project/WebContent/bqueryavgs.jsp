@@ -81,7 +81,19 @@
 				
 				out.print("</tr>");
 			} //end while loop
-			out.print("</table>");
+			
+			if(entity.equals("Averages by Team")){
+				out.print("</table>");
+				out.print("<img src=\"gpainjuriescrimesgraph.PNG\" />");
+				
+			} else {
+				out.print("</table>");
+				out.print("<img src=\"bgpapos.PNG\" />");
+				out.print("<img src=\"binjpos.PNG\" />");
+				out.print("<img src=\"bcrimepos.PNG\" />");
+				
+			} //end if else
+			
 
 			//close the connection.
 			con.close();

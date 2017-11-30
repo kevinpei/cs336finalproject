@@ -105,23 +105,8 @@
 		} //end while loop
 		
 		
-		if(entity.equals("Select")){
-			con.close();
-			
-		} else if(entity.equals("Endowment")){
-			out.print("</table>");
-			//out.print("<img src=\"football_funding_win_ratio.png\" />");
-			
-		} else if(entity.equals("Coachpay")){
-			out.print("</table>");
-			out.print("<img src=\"football wl coach pay.PNG\" />");
-			
-		} else { //Expenses  		if(entity.equals("Expenses")){
-			out.print("</table>");
-			out.print("<img src=\"football_funding_win_ratio.png\" />");
-			
-		} //end if else
-		
+		out.print("</table>");
+		out.print("<img src=\"football_funding_win_ratio.png\" />");
 		//close the connection.
 		con.close();
 		
