@@ -15,8 +15,8 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a href="basketball_index.jsp">Basketball</a>
+  <a href="football_administrator_index.jsp">Football for Administrators</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
 </div>
 
 	<%
@@ -60,13 +60,13 @@
 			out.print("<th>Position</th>");
 			//make a column
 			out.print("<th>School</th>");
-			out.print("<th>Playtime (Percent of the Time)</th>");
+			out.print("<th>Average Playtime (Minutes per Game)</th>");
 			//make a column
-			out.print("<th>Tackles (Per Season)</th>");
+			out.print("<th>Average Tackles (Per Game)</th>");
 			//make a column
-			out.print("<th>Touchdowns (Per Season)</th>");
+			out.print("<th>Average Touchdowns (Per Game)</th>");
 			//make a column
-			out.print("<th>Field Goals (Per Season)</th>");
+			out.print("<th>Average Field Goals (Per Game)</th>");
 			//make a column
 			out.print("<th>Status</th>");
 			

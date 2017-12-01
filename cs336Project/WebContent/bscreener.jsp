@@ -15,8 +15,8 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a href="basketball_index.jsp">Basketball</a>
+  <a href="football_administrator_index.jsp">Football for Administrators</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
 </div>
     
 <%
@@ -72,24 +72,38 @@
 		ResultSet result = stmt.executeQuery(str);
 		
 		if (!result.isBeforeFirst() ) {    
-		    System.out.println("No data"); 
-		
-			str = "SELECT a.NAME, a.SCHOOL, b.HT, b.WT, b.GPA FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.POS = \"" + ent0 + "\" AND b.WT > \"" + ent1 + "\" AND b.WT < \"" + val + "\" AND b.HT = \"" + ent2 + "\" ";
-			result = stmt.executeQuery(str);
+		    //System.out.println("No data"); 
+		    
+		    if (ent0.equals("A")){
+		    	str = "SELECT a.NAME, a.SCHOOL, b.HT, b.WT, b.GPA FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND b.WT > \"" + ent1 + "\" AND b.WT < \"" + val + "\" AND b.HT = \"" + ent2 + "\" ";
+		    } else {
+				str = "SELECT a.NAME, a.SCHOOL, b.HT, b.WT, b.GPA FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.POS = \"" + ent0 + "\" AND b.WT > \"" + ent1 + "\" AND b.WT < \"" + val + "\" AND b.HT = \"" + ent2 + "\" ";
+				result = stmt.executeQuery(str);
+			}	
 		}
 		
 		if (!result.isBeforeFirst() ) {    
-		    System.out.println("No data1"); 
-		
-			str = "SELECT a.NAME, a.SCHOOL, b.HT, b.WT, b.GPA FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.POS = \"" + ent0 + "\" AND b.HT = \"" + ent2 + "\" ";
-			result = stmt.executeQuery(str);
+		    //System.out.println("No data1"); 
+			
+		    if (ent0.equals("A")){
+		    	str = "SELECT a.NAME, a.SCHOOL, b.HT, b.WT, b.GPA FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND b.HT = \"" + ent2 + "\" ";
+		    	result = stmt.executeQuery(str);
+		    } else {
+				str = "SELECT a.NAME, a.SCHOOL, b.HT, b.WT, b.GPA FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.POS = \"" + ent0 + "\" AND b.HT = \"" + ent2 + "\" ";
+				result = stmt.executeQuery(str);
+		    }
 		}
 		
 		if (!result.isBeforeFirst() ) {    
-		    System.out.println("No data2"); 
-		
-			str = "SELECT a.NAME, a.SCHOOL, b.HT, b.WT, b.GPA FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.POS = \"" + ent0 + "\" ";
-			result = stmt.executeQuery(str);
+		    //System.out.println("No data2"); 
+		    
+		    if (ent0.equals("A")){
+		    	str = "SELECT a.NAME, a.SCHOOL, b.HT, b.WT, b.GPA FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM"; 
+		    	result = stmt.executeQuery(str);
+		    } else {
+				str = "SELECT a.NAME, a.SCHOOL, b.HT, b.WT, b.GPA FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.POS = \"" + ent0 + "\" ";
+				result = stmt.executeQuery(str);
+		    }
 		}
 		
 		//Make an HTML table to show the results in:

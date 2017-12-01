@@ -18,8 +18,6 @@
   <a href="main_index.jsp">Home</a>
   <a class="active" href="football_administrator_index.jsp">Football for Administrators</a>
   <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
-  <a href="football_fan_index.jsp">Football for Fans</a>
-  <a href="basketball_fan_index.jsp">Basketball for Fans</a>
 </div>
 <div>
 <img class="football_background" src="football_player.jpg" />
@@ -313,7 +311,24 @@ determining the best player.
 	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
-
+<br>
+What makes a player good? Why not start with weight and height? Try and see which is the better determinant of tackles, touchdowns, and field goals.
+<br> 
+	<form method="post" action="height_weight_football.jsp">
+	<table>
+	<tr>
+	<select name= "BestStat">
+		<option value = "Height">Height</option>
+		<option value = "Weight">Weight</option>
+	</select>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="Submit" class="submit">
+	</form>
+<br>
+<br>
 Have you ever wondered what the best use of university money was? Have you ever wondered how the amount of money you get determines
 how good of a football team you have? Use the dropdown menu below to see how the various kinds of finances affect the 
 performance of your football team.
@@ -356,6 +371,14 @@ record affects their GPA.
 	<br>
 	<input type="submit" value="Submit" class="submit">
 	</form>
+<br><br>
+What really determines a student's criminal record? Since it's tied to which school they go to, let's investigate:
+<br>
+<form method="post" action="football_crime_determinant.jsp">
+	<input type="submit" value="What Determines a Player's Criminal Record?" class="submit">
+	</form>
+<br><br>
+Now that we know what determines a player's stats, add new players to your team in a more intelligent way! 
 <br><br>
 Insert or Update Player Info:
 <form method="post" action="insertupdateindexfootball.jsp">

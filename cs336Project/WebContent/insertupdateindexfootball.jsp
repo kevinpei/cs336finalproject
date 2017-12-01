@@ -16,8 +16,8 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a href="basketball_index.jsp">Basketball</a>
+  <a href="football_administrator_index.jsp">Football for Administrators</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
 </div>
 <div>
 <img class="football_background" src="football_player.jpg" />
@@ -27,8 +27,11 @@
 </div>
 <div class="body">
 <br>
-<% out.println("To insert a player, select the team that you want to add a player to and fill in the boxes!");%> 
-<% out.println("To update a player, enter a player's student ID number and select a school!");%> 
+<% out.println("To insert a player, you must enter the player's university, school ID, name, position, and jersey number. If you do not enter " +
+"anything for the other fields, they will be given default values of 0 or --, or 1.00 for GPA. The inserted player will be assumed to be an entirely " + 
+"new player with no playtime, tackles, touchdowns, or field goals, and be a backup. ");%> 
+<br><br>
+<% out.println("To update a player, enter a player's school and student ID number. Then fill in any other fields that you wish to change.");%> 
 <br> 
 	<form method="post" action="insertupdatequeryfootball.jsp">
 	<table>
@@ -53,6 +56,10 @@
 	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
 	</select>
 	</td>
+	</tr>
+	
+	<tr>
+	<td>Student ID Number</td><td><input type="text" name="idnum"></td>
 	</tr>
 	
 	
@@ -194,10 +201,6 @@
 	
 	<tr>
 	<td>Number of Injuries</td><td><input type="text" name="injuries"></td>
-	</tr>
-	
-	<tr>
-	<td>Student ID Number</td><td><input type="text" name="idnum"></td>
 	</tr>
 	
 	

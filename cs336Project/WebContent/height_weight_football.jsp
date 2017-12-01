@@ -30,32 +30,18 @@
 		//Create a SQL statement
 		Statement stmt = con.createStatement();
 		//Get the selected radio button from the index.jsp
-		String school = request.getParameter("BestUniversity");
-		String position = request.getParameter("BestPosition");
 		String stat = request.getParameter("BestStat");
-		String str = "SELECT f.* FROM cs336project.PlaysForF f WHERE ";
-
-		if (!school.equals("All")) {
-			str = str + "f.SCHOOL = \"" + school + "\" AND ";
-		}
-		if (!position.equals("All")) {
-			str = str + "f.POS = \"" + position + "\" ";
-		}
-		//Remove any AND or WHERE at the end
-		if (str.substring(str.length() - 4).equals("AND "))
-			str = str.substring(0, str.length() - 4);
-		if (str.substring(str.length() - 6).equals("WHERE "))
-			str = str.substring(0, str.length() - 6);
-		
-		if (stat.equals("TACKLES")) {
-			str = str + "GROUP BY f.NAME ORDER BY f.TACKLES DESC";
-		} else if (stat.equals("TOUCHDOWNS")) {
-			str = str + "GROUP BY f.NAME ORDER BY f.TOUCHDOWNS DESC";
-		} else if (stat.equals("FIELD_GOALS")) {
-			str = str + "GROUP BY f.NAME ORDER BY f.FIELD_GOALS DESC";
+		String str = null;
+		if (stat.equals("Height")) {
+			str = "SELECT f.NAME, p.HT, f.TACKLES, f.TOUCHDOWNS, f.FIELD_GOALS, f.TACKLES + f.TOUCHDOWNS + f.FIELD_GOALS AS total FROM cs336project.PlaysForF f, cs336project.PlayerData p WHERE p.SCHOOL = f.SCHOOL and p.ID_NUM = f.ID_NUM ";
+			out.print("Height is a reasonably good determinant of performance for football players. The distribution appears to be " +
+			"roughly Gaussian, with exceptional players having heights near the middle, while poor players have both high and low heights. See the graph below the table for a visualization.");
 		} else {
-			str = str + "GROUP BY f.NAME ORDER BY SUM(f.TOUCHDOWNS + f.TACKLES + f.FIELD_GOALS) DESC";
+			str = "SELECT f.NAME, p.WT, f.TACKLES, f.TOUCHDOWNS, f.FIELD_GOALS, f.TACKLES + f.TOUCHDOWNS + f.FIELD_GOALS AS total FROM cs336project.PlaysForF f, cs336project.PlayerData p WHERE p.SCHOOL = f.SCHOOL and p.ID_NUM = f.ID_NUM ";
+			out.print("Weight is not a good determinant of performance for football players. The distribution appears to be " +
+					"mostly random, with both exceptional and poor players having many different weights. See the graph below the table for a visualization.");
 		}
+		str = str + "GROUP BY f.NAME ORDER BY total DESC";
 			
 		//Run the query against the database.
 		ResultSet result = stmt.executeQuery(str);
@@ -65,24 +51,20 @@
 				
 		//make a row
 		out.print("<tr>");
-		//make a column 1
-		out.print("<th>Player Number</th>");
 		//make a column
 		out.print("<th>Name</th>");
 		//make a column
-		out.print("<th>Position</th>");
+		if (stat.equals("Height"))
+		out.print("<th>Height</th>");
 		//make a column
-		out.print("<th>School</th>");
-		out.print("<th>Average Playtime (Minutes per Game)</th>");
-		//make a column
+		else
+		out.print("<th>Weight</th>");
 		out.print("<th>Average Tackles (Per Game)</th>");
 		//make a column
 		out.print("<th>Average Touchdowns (Per Game)</th>");
 		//make a column
 		out.print("<th>Average Field Goals (Per Game)</th>");
-		//make a column
-		out.print("<th>Status</th>");
-		
+		out.print("<th>Average Tackles, Touchdowns, and Field Goals (per Game)</th>");
 		out.print("</tr>");
 		
 
@@ -90,32 +72,32 @@
 		while (result.next()) {
 			//make a row
 			out.print("<tr>");
+			out.print("<td>" + result.getString("f.NAME") + "</td>");
 			//make a column
-			out.print("<td>" + result.getString("NO") + "</td>");
+			if (stat.equals("Height"))
+			out.print("<td>" + result.getString("p.HT") + "</td>");
 			//make a column
-			out.print("<td>" + result.getString("NAME") + "</td>");
 			//make a column
-			out.print("<td>" + result.getString("POS") + "</td>");
+			else
+			out.print("<td>" + result.getString("p.WT") + "</td>");
+			out.print("<td>" + result.getString("f.TACKLES") + "</td>");
 			//make a column
-			out.print("<td>" + result.getString("SCHOOL") + "</td>");
-			
+			out.print("<td>" + result.getString("f.TOUCHDOWNS") + "</td>");
 			//make a column
-			out.print("<td>" + result.getString("PLAYTIME") + "</td>");
-			//make a column
-			out.print("<td>" + result.getString("TACKLES") + "</td>");
-			//make a column
-			out.print("<td>" + result.getString("TOUCHDOWNS") + "</td>");
-			//make a column
-			out.print("<td>" + result.getString("FIELD_GOALS") + "</td>");
-			//make a column
-			out.print("<td>" + result.getString("DEPTH_CHART") + "</td>");
+			out.print("<td>" + result.getString("f.FIELD_GOALS") + "</td>");
+			out.print("<td>" + result.getString("total") + "</td>");
 			
 			out.print("</tr>");
 			
 		}
-				
+		
 		out.print("</table>");
 		//close the connection.
+		if (stat.equals("Height")) {
+			out.print("<img src=\"football_height_performance.png\" />");
+		} else {
+			out.print("<img src=\"football_weight_performance.png\" />");
+		}
 		con.close();
 		
 	} catch (Exception e) {

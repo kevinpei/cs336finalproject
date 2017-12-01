@@ -15,8 +15,8 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a href="basketball_index.jsp">Basketball</a>
+  <a href="football_administrator_index.jsp">Football for Administrators</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
 </div>
 	<% 
 	
@@ -36,8 +36,12 @@
 				con.close();
 			} else if(entity.equals("Averages by Team")){
 				str = "SELECT b.SCHOOL, AVG(b.GPA), AVG(b.INJURIES), AVG(b.CRIMES) FROM cs336project.PlayerData b GROUP BY b.SCHOOL ORDER BY AVG(b.GPA) desc";
+				out.print("<br><br>As you can see, school determines crime number. School doesn't really determine GPA except in the case of Penn State, " +
+				"where Penn State has a dramatically lower average GPA than other schools. Average number of injuries received by students is also " + 
+						"independent of school.<br><br>");
 			} else {
 				str = "SELECT s1.POS, AVG(b.GPA), AVG(b.INJURIES), AVG(b.CRIMES) FROM cs336project.PlaysForB s1, cs336project.PlayerData b WHERE s1.ID_NUM = b.ID_NUM AND s1.SCHOOL = b.SCHOOL GROUP BY s1.POS ORDER BY AVG(b.GPA) desc limit 3";
+				out.print("<br><br>Position seems to be independent of GPA, average injury number, and number of crimes committed.<br><br>");
 			}
 
 			//Run the query against the database.

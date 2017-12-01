@@ -16,8 +16,8 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a class="active" href="basketball_index.jsp">Basketball</a>
+  <a href="football_administrator_index.jsp">Football for Administrators</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
 </div>
 <div>
 <img class="football_background" src="football_player.jpg" />
@@ -107,7 +107,9 @@ Click here to get all Big 10 basketball players and schools.
 
 
 
-<% out.println("Finances and their relation to team record! ");%> 
+Have you ever wondered how the amount of money a sports team gets
+impacts the teams performance? Use the dropdown menu below to see how the various kinds of finances affect the 
+record of your basketball team.
 <br> 
 	<form method="post" action="bqueryfinance.jsp">
 	<table>
@@ -130,7 +132,7 @@ Click here to get all Big 10 basketball players and schools.
 
 
 
-<% out.println("Find the best players on each team by position! ");%> 
+<% out.println("Find the best players on each team by position! A players ranking is determined by taking a variety of factors into account, including points, assists, rebounds, steals and turnovers per game! ");%> 
 <br> 
 	<form method="post" action="bquerybest.jsp">
 	<table>
@@ -173,7 +175,7 @@ Click here to get all Big 10 basketball players and schools.
 	</form>
 <br>
 
-Insert or Update Player Info:
+Insert or Update Player Information:
 <form method="post" action="insertupdateindexbasketball.jsp">
     <button type="submit" name="command" value="InsertUpdate">Insert or Update Player Info</button>
     <br>

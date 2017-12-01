@@ -17,8 +17,6 @@
   <a href="main_index.jsp">Home</a>
   <a href="football_administrator_index.jsp">Football for Administrators</a>
   <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
-  <a href="football_fan_index.jsp">Football for Fans</a>
-  <a href="basketball_fan_index.jsp">Basketball for Fans</a>
 </div>
 <%
 

@@ -18,8 +18,6 @@
   <a class="active" href="main_index.jsp">Home</a>
   <a href="football_administrator_index.jsp">Football for Administrators</a>
   <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
-  <a href="football_fan_index.jsp">Football for Fans</a>
-  <a href="basketball_fan_index.jsp">Basketball for Fans</a>
 </div>
 <div>
 <img class="football_background" src="football_player.jpg" />
@@ -29,11 +27,10 @@
 </div>
 <div class="body">
 <br>
-Hello <!-- the usual HTML way -->
-<% out.println("user!"); %> <!-- output the same thing, but using 
-                                      jsp programming -->
-
-Click one of the buttons below to get all the info on a certain topic.									  
+Hello Big 10 administrator. Welcome to FUBAR, where you can get information on the players in your team and on players in
+other teams in the Big 10. Click one of the buttons below to get all the info on a certain topic. After getting all the information,
+you can sort the information by whichever field you choose. Alternatively, choose one of the tabs above to get specific operations
+for a sport.								  
 <br>
  <!-- Show html form to i) display something, ii) choose an action via a 
   | radio button -->
@@ -48,7 +45,8 @@ Click one of the buttons below to get all the info on a certain topic.
 
 <br>
 
-You can filter for specific players using the fields below. Any fields that you aren't selecting for you can leave empty. Hit submit when you're done creating your query.
+You can also filter for specific players using the fields below. Any fields that you aren't selecting for you can leave empty. 
+They will be ignored when searching. Hit submit when you're done creating your query.
 <br><br>
 	<form method="post" action="playerData.jsp">
 	<table>

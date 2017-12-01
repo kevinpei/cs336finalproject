@@ -30,20 +30,11 @@
 			//Create a SQL statement
 			Statement stmt = con.createStatement();
 			//Get the selected radio button from the index.jsp
-			String entity = request.getParameter("AvgStat");
 			String str = null;
 			//Make a SELECT query from the table specified by the 'command' parameter at the index.jsp
-			if(entity.equals("Select")){
-				con.close();
-			} else if(entity.equals("Averages by Team")){
-				str = "SELECT f.SCHOOL, AVG(f.GPA), AVG(f.INJURIES) FROM cs336project.PlayerData f GROUP BY f.SCHOOL ORDER BY AVG(f.GPA) desc";
-				out.print("As you can see, GPA and injury record is mostly constant per school. However, in the case of Penn State, the GPA is unusually " +
-				"low. If you are a Penn State administrator, you should try to rectify this as soon as possible.<br><br>");
-			} else {
-				str = "SELECT s1.POS, AVG(f.GPA), AVG(f.INJURIES) FROM cs336project.PlaysForF s1, cs336project.PlayerData f WHERE s1.ID_NUM = f.ID_NUM AND s1.SCHOOL = f.SCHOOL GROUP BY s1.POS ORDER BY AVG(f.GPA) desc";
-				out.print("As you can see, GPA and injury record are closely related. Further, position seems to determine injury record, " + 
-				"which in turn determines GPA. Be careful of who you assign to what positions. See the graph at the bottom for more information.<br><br>");
-			}
+			str = "SELECT f.SCHOOL, AVG(f.CRIMES), s.ENDOWMENT, s.SPORTSEXPENSES, t.FCOACHPAY FROM cs336project.PlayerData f, cs336project.SchoolData s, cs336project.FootballTeamData t WHERE f.SCHOOL = s.SCHOOL and f.SCHOOl = t.SCHOOL GROUP BY f.SCHOOL ORDER BY AVG(f.CRIMES) desc";
+			out.print("As you can see, crime rate is positively correlated with school endowment. Rutgers however seems to have an " +
+			"unusually high crime rate. If you are a Rutgers administrator, you should try to rectify this as soon as possible. See the graph at the bottom for an illustration.<br><br>");
 			
 			//Run the query against the database.
 			ResultSet result = stmt.executeQuery(str);
@@ -54,14 +45,12 @@
 			//make a row
 			out.print("<tr>");
 			//make a column 1
-			if(entity.equals("Averages by Team")){
-				out.print("<th>School</th>");
-			} else {
-				out.print("<th>Position</th>");
-			}
+			out.print("<th>School</th>");
 			//make a column 2
-				out.print("<th>Average GPA</th>");
-			out.print("<th>Average Number of Injuries</th>");
+			out.print("<th>Average Number of Crimes Committed per Player</th>");
+			out.print("<th>School Endowment</th>");
+			out.print("<th>School Sports Expenses</th>");
+			out.print("<th>Football Coach Pay</th>");
 			out.print("</tr>");
 			
 
@@ -70,21 +59,16 @@
 				//make a row
 				out.print("<tr>");
 				//make a column
-				if(entity.equals("Averages by Team")){
-					out.print("<td>" + result.getString("SCHOOL") + "</td>");
-				} else {
-					out.print("<td>" + result.getString("POS") + "</td>");
-				}
-				out.print("<td>" + result.getString("AVG(f.GPA)") + "</td>");
-				out.print("<td>" + result.getString("AVG(f.INJURIES)") + "</td>");
-				
+				out.print("<td>" + result.getString("f.SCHOOL") + "</td>");
+				out.print("<td>" + result.getString("AVG(f.CRIMES)") + "</td>");
+				out.print("<td>" + result.getString("s.ENDOWMENT") + "</td>");
+				out.print("<td>" + result.getString("s.SPORTSEXPENSES") + "</td>");
+				out.print("<td>" + result.getString("t.FCOACHPAY") + "</td>");
 				out.print("</tr>");
 			} //end while loop
 			out.print("</table>");
-			if (entity.equals("Averages by Position")) {
-				out.print("<img src=\"gpa_injuries_football.png\" />");
-			}
 			//close the connection.
+			out.print("<img src=\"football_crime.png\" />");
 			con.close();
 			
 			

@@ -16,8 +16,8 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a class="active" href="basketball_index.jsp">Basketball</a>
+  <a href="football_administrator_index.jsp">Football for Administrators</a>
+  <a class="active" href="basketball_administrator_index.jsp">Basketball for Administrators</a>
 </div>
 <div>
 <img class="football_background" src="football_player.jpg" />
@@ -28,10 +28,11 @@
 <div class="body">
 <br>
 Hello <!-- the usual HTML way -->
-<% out.println("user!"); %> <!-- output the same thing, but using 
+<% out.println("Big 10 administrator. "); %> <!-- output the same thing, but using 
                                       jsp programming -->
-
-Click here to get all Big 10 basketball players and schools.
+This section of the website is for those who want to improve the performance of their teams for the least cost.
+<br><br>
+Select one of the buttons below to see all Big 10 Basketball teams or players and their stats. 
 <form method="post" action="show_all.jsp">
     <button type="submit" name="command" value="BasketballTeamData">List of Big 10 Basketball Teams</button>
     <button type="submit" name="command" value="PlaysForB">List of Big 10 Basketball Players</button>
@@ -39,7 +40,7 @@ Click here to get all Big 10 basketball players and schools.
 </form>
 <br>
 
-<% out.println("Alternatively, select a basketball team to see their roster!");%> 
+Alternatively, you can selectively see the stats for certain schools or positions.
 <br> 
 	<form method="post" action="bquery.jsp">
 	<table>
@@ -81,134 +82,7 @@ Click here to get all Big 10 basketball players and schools.
 	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
-
-
-
-<% out.println("Look up BIG10 Non-Athletic Average Statistics! ");%> 
-<br> 
-	<form method="post" action="bqueryavgs.jsp">
-	<table>
-	<tr>
-	<td></td><td>
-<!--  Have a dropdown menu to select the university -->
-	<select name="AvgStat">
-	  	<option value="Averages by Team">Averages by Team</option>
-	  	<option value="Averages by Position">Averages by Position</option>
-	</select>
-	</td>
-	</tr>
-	
-	</table>
-	<br>
-	<input type="submit" value="Submit" class="submit">
-	</form>
-<br>
-
-
-
-
-<% out.println("Finances and their relation to team record! ");%> 
-<br> 
-	<form method="post" action="bqueryfinance.jsp">
-	<table>
-	<tr>
-	<td></td><td>
-<!--  Have a dropdown menu to select the university -->
-	<select name="finances">
-	  	<option value="Endowment">University Endowment</option>
-	  	<option value="Coachpay">Coach's Salary</option>
-	  	<option value="Expenses">Athletic Department Expenses</option>
-	</select>
-	</td>
-	</tr>
-	
-	</table>
-	<br>
-	<input type="submit" value="Submit" class="submit">
-	</form>
-<br>
-
-
-<% out.println("Select a school to see which states most of their players are from!");%> 
-<br> 
-	<form method="post" action="bqueryhomestate.jsp">
-	<table>
-	<tr>
-	<td></td><td>
-<!--  Have a dropdown menu to select the university -->
-	<select name="University">
-		<option value="Select">Select</option>
-	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
-	  	<option value="Indiana">Indiana University Bloomington</option>
-	  	<option value="Iowa">University of Iowa</option>
-	  	<option value="Maryland">University of Maryland College Park</option>
-	  	<option value="Michigan">University of Michigan</option>
-	  	<option value="Michigan State">Michigan State University</option>
-	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
-	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
-	  	<option value="Northwestern">Northwestern University</option>
-	  	<option value="Ohio State">The Ohio State University</option>
-	  	<option value="Penn State">Penn State University</option>
-	  	<option value="Purdue">Purdue University</option>
-	  	<option value="Rutgers">Rutgers University</option>
-	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
-	</select>
-	</td>
-	</tr>
-	
-	</table>
-	<br>
-	<input type="submit" value="Submit" class="submit">
-	</form>
-<br>
-
-
-
-<% out.println("Find the best players on each team by position! ");%> 
-<br> 
-	<form method="post" action="bquerybest.jsp">
-	<table>
-	<tr>
-	<td>University</td><td>
-<!--  Have a dropdown menu to select the university -->
-	<select name="best">
-		<option value="All">All Universities</option>
-	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
-	  	<option value="Indiana">Indiana University Bloomington</option>
-	  	<option value="Iowa">University of Iowa</option>
-	  	<option value="Maryland">University of Maryland College Park</option>
-	  	<option value="Michigan">University of Michigan</option>
-	  	<option value="Michigan State">Michigan State University</option>
-	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
-	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
-	  	<option value="Northwestern">Northwestern University</option>
-	  	<option value="Ohio State">The Ohio State University</option>
-	  	<option value="Penn State">Penn State University</option>
-	  	<option value="Purdue">Purdue University</option>
-	  	<option value="Rutgers">Rutgers University</option>
-	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
-	</select>
-	</td>
-	</tr>
-	
-	<tr>
-	<td>Position</td><td>
-	<select name= "bestp">
-		<option value = "C">Center</option>
-		<option value = "G">Guard</option>
-		<option value = "F">Forward</option>
-	</select>
-	</td>
-	</tr>
-	
-	</table>
-	<br>
-	<input type="submit" value="Submit" class="submit">
-	</form>
-<br>
-
-
-<% out.println("Find players by with the attributes that you choose!");%> 
+If you're looking for a particular player, use the tool below to narrow down your search.
 <br> 
 	<form method="post" action="bscreener.jsp">
 	<table>
@@ -290,9 +164,158 @@ Click here to get all Big 10 basketball players and schools.
 	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
+<br>
+If you're looking for more specific information on how to improve your basketball team, take a look at the queries below.
+<br><br>
+In basketball, there are 3 major positions: Guard, Forward and Center <br>
+Each of these positions plays a different role and contributes in a different way.
+Now let's see how much each position contributes to a few of the teams main stats.
+<br> 
+	<form method="post" action="bballrankpos.jsp">
+	<table>
+	<tr>
+	<td></td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="OrderingStat">
+	  	<option value="points">Order by Points</option>
+	  	<option value="assists">Order by Assists</option>
+	  	<option value="rebounds">Order by Rebounds</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="Submit" class="submit">
+	</form>
+<br>
+<% out.println("Look up BIG10 Non-Athletic Average Statistics! ");%> 
+<br> 
+	<form method="post" action="bqueryavgs.jsp">
+	<table>
+	<tr>
+	<td></td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="AvgStat">
+	  	<option value="Averages by Team">Averages by Team</option>
+	  	<option value="Averages by Position">Averages by Position</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="Submit" class="submit">
+	</form>
+<br>
 
 
 
+
+Have you ever wondered how the amount of money a sports team gets
+impacts the teams performance? Use the dropdown menu below to see how the various kinds of finances affect the 
+record of your basketball team.
+<br> 
+	<form method="post" action="bqueryfinance.jsp">
+	<table>
+	<tr>
+	<td></td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="finances">
+	  	<option value="Endowment">University Endowment</option>
+	  	<option value="Coachpay">Coach's Salary</option>
+	  	<option value="Expenses">Athletic Department Expenses</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="Submit" class="submit">
+	</form>
+<br>
+
+
+<% out.println("Select a school to see which states most of their players are from!");%> 
+<br> 
+	<form method="post" action="bqueryhomestate.jsp">
+	<table>
+	<tr>
+	<td></td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="University">
+		<option value="Select">Select</option>
+	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
+	  	<option value="Indiana">Indiana University Bloomington</option>
+	  	<option value="Iowa">University of Iowa</option>
+	  	<option value="Maryland">University of Maryland College Park</option>
+	  	<option value="Michigan">University of Michigan</option>
+	  	<option value="Michigan State">Michigan State University</option>
+	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
+	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
+	  	<option value="Northwestern">Northwestern University</option>
+	  	<option value="Ohio State">The Ohio State University</option>
+	  	<option value="Penn State">Penn State University</option>
+	  	<option value="Purdue">Purdue University</option>
+	  	<option value="Rutgers">Rutgers University</option>
+	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="Submit" class="submit">
+	</form>
+<br>
+
+Find the best players on each team by position! A player's ranking is determined by adding together their average number of 
+rebounds, assists, blocks, steals, and points scored per game and subtracting the average number of turnarounds per game.
+<br> 
+	<form method="post" action="bquerybest.jsp">
+	<table>
+	<tr>
+	<td>University</td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="best">
+		<option value="All">All Universities</option>
+	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
+	  	<option value="Indiana">Indiana University Bloomington</option>
+	  	<option value="Iowa">University of Iowa</option>
+	  	<option value="Maryland">University of Maryland College Park</option>
+	  	<option value="Michigan">University of Michigan</option>
+	  	<option value="Michigan State">Michigan State University</option>
+	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
+	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
+	  	<option value="Northwestern">Northwestern University</option>
+	  	<option value="Ohio State">The Ohio State University</option>
+	  	<option value="Penn State">Penn State University</option>
+	  	<option value="Purdue">Purdue University</option>
+	  	<option value="Rutgers">Rutgers University</option>
+	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
+	</select>
+	</td>
+	</tr>
+	
+	<tr>
+	<td>Position</td><td>
+	<select name= "bestp">
+		<option value = "C">Center</option>
+		<option value = "G">Guard</option>
+		<option value = "F">Forward</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="Submit" class="submit">
+	</form>
+<br>
+<br>
+Now that you have a better idea of what determines a player's stats, you can make better informed choices on who to 
+add or change on your team.
+<br><br>
 Insert or Update Player Info:
 <form method="post" action="insertupdateindexbasketball.jsp">
     <button type="submit" name="command" value="InsertUpdate">Insert or Update Player Info</button>
