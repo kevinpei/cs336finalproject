@@ -7,7 +7,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Best Players</title>
+<title>Football Stats per Position</title>
 </head>
 <body>
 <div class="banner">
@@ -17,8 +17,6 @@
   <a href="main_index.jsp">Home</a>
   <a href="football_administrator_index.jsp">Football for Administrators and Fans</a>
   <a href="basketball_administrator_index.jsp">Basketball for Administrators and Fans</a>
-  <a class="active" href="administrator_index.jsp">For Administrators</a>
-  <a href="fan_index.jsp">For Fans</a>
 </div>
 <%
 
@@ -31,10 +29,15 @@
 		//Create a SQL statement
 		Statement stmt = con.createStatement();
 		//Get the selected radio button from the index.jsp
-		String str = "SELECT f.SCHOOL, COUNT(DISTINCT f.POS) AS positions, " + 
-		"cs336project.FootballTeamData.WINS/cs336project.FootballTeamData.LOSSES AS ratio FROM cs336project.PlaysForF f " + 
-		"INNER JOIN cs336project.FootballTeamData ON f.SCHOOL = cs336project.FootballTeamData.SCHOOL " + 
-		"GROUP BY f.SCHOOL ORDER BY ratio DESC";
+		String type = request.getParameter("OrderingStat");
+		String str = "SELECT f.POS, AVG(f.TACKLES) AS tackles, AVG(f.TOUCHDOWNS) AS touchdowns, AVG(f.FIELD_GOALS) AS fgoals FROM cs336project.PlaysForF f GROUP BY f.POS ";
+		if (type.equals("Tackles")) {
+			str += "ORDER BY tackles DESC";
+		} else if (type.equals("Touchdowns")) {
+			str += "ORDER BY touchdowns DESC";
+		} else {
+			str += "ORDER BY fgoals DESC";
+		}
 			
 			
 		//Run the query against the database.
@@ -45,10 +48,10 @@
 		//make a row
 		out.print("<tr>");
 		//make a column 1
-		out.print("<th>School</th>");
-		out.print("<th>Number of Positions</th>");
-		//make a column 2
-		out.print("<th>School Win/Loss Ratio</th>");
+		out.print("<th>Position</th>");
+		out.print("<th>Average Tackles per Game</th>");
+		out.print("<th>Average Touchdowns per Game</th>");
+		out.print("<th>Average Field Goals per Game</th>");
 		out.print("</tr>");
 		
 		//parse out the results
@@ -56,11 +59,10 @@
 			//make a row
 			out.print("<tr>");
 			//make a column 1
-			out.print("<td>" + result.getString("f.SCHOOL") + "</td>");
-			//make column 2		
-			out.print("<td>" + result.getString("positions") + "</td>");
-
-			out.print("<td>" + result.getString("ratio") + "</td>");
+			out.print("<td>" + result.getString("f.POS") + "</td>");
+			out.print("<td>" + result.getString("tackles") + "</td>");
+			out.print("<td>" + result.getString("touchdowns") + "</td>");
+			out.print("<td>" + result.getString("fgoals") + "</td>");
 			
 			out.print("</tr>");
 		} //end while loop

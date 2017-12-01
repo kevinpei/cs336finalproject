@@ -15,8 +15,8 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a href="basketball_index.jsp">Basketball</a>
+  <a href="football_administrator_index.jsp">Football for Administrators and Fans</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators and Fans</a>
 </div>
 	<% 
 	

@@ -15,8 +15,8 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a href="basketball_index.jsp">Basketball</a>
+  <a href="football_administrator_index.jsp">Football for Administrators and Fans</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators and Fans</a>
 </div>
 
 	<%
@@ -61,20 +61,20 @@
 			//make a column
 			out.print("<th>School</th>");
 			//make a column
-			out.print("<th>Play Time (Minutes Per Game)</th>");
+			out.print("<th>Average Play Time (Minutes Per Game)</th>");
 			
 			//make a column
-			out.print("<th>Points Scored (Per Game)</th>");
+			out.print("<th>Average Points Scored (Per Game)</th>");
 			//make a column
-			out.print("<th>Assists (Per Game)</th>");
+			out.print("<th>Average Assists (Per Game)</th>");
 			//make a column
-			out.print("<th>Rebounds (Per Game)</th>");
+			out.print("<th>Average Rebounds (Per Game)</th>");
 			//make a column
-			out.print("<th>Turnovers (Per Game)</th>");
+			out.print("<th>Average Turnovers (Per Game)</th>");
 			//make a column
-			out.print("<th>Steals (Per Game)</th>");
+			out.print("<th>Average Steals (Per Game)</th>");
 			//make a column
-			out.print("<th>Fouls (Per Game)</th>");
+			out.print("<th>Average Fouls (Per Game)</th>");
 			
 			out.print("</tr>");
 			
