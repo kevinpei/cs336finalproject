@@ -33,11 +33,10 @@
 		String entity = request.getParameter("University");
 		String str = null;
 		if (entity.equals("All")) {
-			str = "SELECT b.SCHOOL, b.STATE, COUNT(a.NAME) FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.SCHOOL = b.SCHOOL GROUP BY a.SCHOOL, b.STATE ORDER BY COUNT(a.NAME) desc";
+			str = "SELECT b.SCHOOL, b.STATE, COUNT(a.NAME) FROM cs336project.PlaysForF a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.SCHOOL = b.SCHOOL GROUP BY a.SCHOOL, b.STATE ORDER BY COUNT(a.NAME) desc";
 		} else {
-			str = "SELECT b.SCHOOL, b.STATE, COUNT(a.NAME) FROM cs336project.PlaysForB a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.SCHOOL = \"" + entity + "\" GROUP BY b.STATE ORDER BY COUNT(a.NAME) desc";
+			str = "SELECT b.SCHOOL, b.STATE, COUNT(a.NAME) FROM cs336project.PlaysForF a, cs336project.PlayerData b WHERE a.ID_NUM = b.ID_NUM AND a.SCHOOL = \"" + entity + "\" GROUP BY b.STATE ORDER BY COUNT(a.NAME) desc";
 		}
-		
 
 		if (entity.equals("Select")){
 			//close

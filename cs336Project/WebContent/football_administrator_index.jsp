@@ -329,6 +329,40 @@ What makes a player good? Why not start with weight and height? Try and see whic
 	</form>
 <br>
 <br>
+<% out.println("Select a school to see which states most of their players are from. If a school is beating you, try " + 
+"recruiting from home states they frequently recruit from.");%> 
+<br> 
+	<form method="post" action="fqueryhomestate.jsp">
+	<table>
+	<tr>
+	<td></td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="University">
+		<option value="All">All Universities</option>
+	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
+	  	<option value="Indiana">Indiana University Bloomington</option>
+	  	<option value="Iowa">University of Iowa</option>
+	  	<option value="Maryland">University of Maryland College Park</option>
+	  	<option value="Michigan">University of Michigan</option>
+	  	<option value="Michigan State">Michigan State University</option>
+	  	<option value="Minnesota">University of Minnesota Twin Cities</option>
+	  	<option value="Nebraska">University of Nebraska-Lincoln</option>
+	  	<option value="Northwestern">Northwestern University</option>
+	  	<option value="Ohio State">The Ohio State University</option>
+	  	<option value="Penn State">Penn State University</option>
+	  	<option value="Purdue">Purdue University</option>
+	  	<option value="Rutgers">Rutgers University</option>
+	  	<option value="Wisconsin">University of Wisconsin-Madison</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="Submit" class="submit">
+	</form>
+<br>
+
 Have you ever wondered what the best use of university money was? Have you ever wondered how the amount of money you get determines
 how good of a football team you have? Use the dropdown menu below to see how the various kinds of finances affect the 
 performance of your football team.

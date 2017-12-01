@@ -203,6 +203,33 @@
 	<td>Number of Injuries</td><td><input type="text" name="injuries"></td>
 	</tr>
 	
+	<tr>
+	<td>Average Playtime</td><td><input type="text" name="playtime"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Tackles per Game</td><td><input type="text" name="tackles"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Touchdowns per Game</td><td><input type="text" name="touchdowns"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Field Goals per Game</td><td><input type="text" name="fgoals"></td>
+	</tr>
+	
+	<tr>
+	<td>Player Status</td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="status">
+		<option value="Select">Select</option>
+	  	<option value="Starter">Starter</option>
+	  	<option value="Backup">Backup</option>
+	</select>
+	</td>
+	</tr>
+	
 	
 	</table>
 	<br>

@@ -28,8 +28,7 @@
 <div class="body">
 <br>
 <% out.println("To insert a player, you must enter the player's university, school ID, name, position, and jersey number. If you do not enter " +
-"anything for the other fields, they will be given default values of 0 or --, or 1.00 for GPA. The inserted player will be assumed to be an entirely " + 
-"new player with no playtime, rebounds, assists, blocks, steals, fouls, turnovers, or points scored.");%> 
+"anything for the other fields, they will be given default values of 0 or --, or 1.00 for GPA.");%> 
 <br><br>
 <% out.println("To update a player, enter a player's school and student ID number. Then fill in any other fields that you wish to change.");%> 
 <br> 
@@ -184,6 +183,38 @@
 	
 	<tr>
 	<td>Number of Injuries</td><td><input type="text" name="injuries"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Playtime</td><td><input type="text" name="playtime"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Rebounds per Game</td><td><input type="text" name="rebounds"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Assists per Game</td><td><input type="text" name="assists"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Blocks per Game</td><td><input type="text" name="blocks"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Steals per Game</td><td><input type="text" name="steals"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Fouls per Game</td><td><input type="text" name="fouls"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Turnovers per Game</td><td><input type="text" name="turnovers"></td>
+	</tr>
+	
+	<tr>
+	<td>Average Points Scored per Game</td><td><input type="text" name="points"></td>
 	</tr>
 	
 	</table>

@@ -189,28 +189,6 @@ Now let's see how much each position contributes to a few of the teams main stat
 	<input type="submit" value="Submit" class="submit">
 	</form>
 <br>
-<% out.println("Look up BIG10 Non-Athletic Average Statistics! ");%> 
-<br> 
-	<form method="post" action="bqueryavgs.jsp">
-	<table>
-	<tr>
-	<td></td><td>
-<!--  Have a dropdown menu to select the university -->
-	<select name="AvgStat">
-	  	<option value="Averages by Team">Averages by Team</option>
-	  	<option value="Averages by Position">Averages by Position</option>
-	</select>
-	</td>
-	</tr>
-	
-	</table>
-	<br>
-	<input type="submit" value="Submit" class="submit">
-	</form>
-<br>
-
-
-
 
 Have you ever wondered how the amount of money a sports team gets
 impacts the teams performance? Use the dropdown menu below to see how the various kinds of finances affect the 
@@ -236,7 +214,8 @@ record of your basketball team.
 <br>
 
 
-<% out.println("Select a school to see which states most of their players are from!");%> 
+<% out.println("Select a school to see which states most of their players are from. If a school is beating you, try " + 
+"recruiting from home states they frequently recruit from.");%> 
 <br> 
 	<form method="post" action="bqueryhomestate.jsp">
 	<table>
@@ -244,7 +223,7 @@ record of your basketball team.
 	<td></td><td>
 <!--  Have a dropdown menu to select the university -->
 	<select name="University">
-		<option value="Select">Select</option>
+		<option value="All">All Universities</option>
 	  	<option value="Illinois">University of Illinois at Urbana-Champaign</option>
 	  	<option value="Indiana">Indiana University Bloomington</option>
 	  	<option value="Iowa">University of Iowa</option>
@@ -313,6 +292,35 @@ rebounds, assists, blocks, steals, and points scored per game and subtracting th
 	</form>
 <br>
 <br>
+As an administrator, it's also your job to care about the non-athletic parts of a student's life. Use these options below
+to see how a player's position or team affects their academic performance.
+<br> 
+	<form method="post" action="bqueryavgs.jsp">
+	<table>
+	<tr>
+	<td></td><td>
+<!--  Have a dropdown menu to select the university -->
+	<select name="AvgStat">
+	  	<option value="Averages by Team">Averages by Team</option>
+	  	<option value="Averages by Position">Averages by Position</option>
+	</select>
+	</td>
+	</tr>
+	
+	</table>
+	<br>
+	<input type="submit" value="Submit" class="submit">
+	</form>
+<br>
+
+What really determines a student's criminal record? Since it's tied to which school they go to, let's investigate:
+<br>
+<form method="post" action="basketball_crime_determinant.jsp">
+	<input type="submit" value="What Determines a Player's Criminal Record?" class="submit">
+	</form>
+<br><br>
+
+
 Now that you have a better idea of what determines a player's stats, you can make better informed choices on who to 
 add or change on your team.
 <br><br>

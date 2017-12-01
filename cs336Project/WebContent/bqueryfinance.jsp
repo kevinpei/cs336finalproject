@@ -38,10 +38,16 @@
 			con.close();
 		} else if(entity.equals("Endowment")){
 			str = "SELECT a.SCHOOL, b.ENDOWMENT, a.WINS, a.LOSSES FROM cs336project.BasketballTeamData a, cs336project.SchoolData b WHERE a.SCHOOL = b.SCHOOL GROUP BY a.SCHOOL ORDER BY b.ENDOWMENT desc limit 14";
+			out.print("<br><br>There is a weak correlation between school endowment and basketball win/loss ratio. This " +
+			"seems to suggest that the larger your school, the better your basketball team will perform. See the graph at the bottom for a visualization.<br><br>");
 		} else if(entity.equals("Coachpay")){
 			str = "SELECT a.SCHOOL, a.COACH, a.BCOACHPAY, a.WINS, a.LOSSES FROM cs336project.BasketballTeamData a GROUP BY a.SCHOOL ORDER BY a.BCOACHPAY desc limit 14";
+			out.print("<br><br>There is a negative correlation between coach's pay and basketball win/loss ratio. This " +
+					"seems to suggest that the more you pay your basketball coach, the worse your team will do. See the graph at the bottom for a visualization.<br><br>");
 		} else { //Expenses  		if(entity.equals("Expenses")){
 			str = "SELECT a.SCHOOL, b.SPORTSEXPENSES, a.WINS, a.LOSSES FROM cs336project.BasketballTeamData a, cs336project.SchoolData b WHERE a.SCHOOL = b.SCHOOL GROUP BY a.SCHOOL ORDER BY b.SPORTSEXPENSES desc limit 14";
+			out.print("<br><br>There is a negative correlation between school expensese and basketball win/loss ratio. This " +
+					"seems to suggest that the more you spend on sports, the worse your team will do. See the graph at the bottom for a visualization.<br><br>");
 		}
 
 		//Run the query against the database.
@@ -106,7 +112,7 @@
 		
 		if(entity.equals("Endowment")){
 			out.print("</table>");
-			//out.print("<img src=\".PNG\" />");
+			out.print("<img src=\"basketball_endowment_ratio.PNG\" />");
 			
 		} else if (entity.equals("Coachpay")){
 			out.print("</table>");
