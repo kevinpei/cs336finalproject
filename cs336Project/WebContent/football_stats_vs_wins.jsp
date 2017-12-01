@@ -15,10 +15,10 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football for Administrators</a>
-  <a href="basketball_index.jsp">Basketball for Administrators</a>
-  <a href="administrator_index.jsp">Football for Fans</a>
-  <a href="fan_index.jsp">Basketball for Fans</a>
+  <a href="football_administrator_index.jsp">Football for Administrators</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
+  <a href="football_fan_index.jsp">Football for Fans</a>
+  <a href="basketball_fan_index.jsp">Basketball for Fans</a>
 </div>
 <%
 
@@ -34,10 +34,20 @@
 		String type = request.getParameter("Stat");
 		String str = "SELECT f.SCHOOL, ";
 		if (type.equals("Tackles")) {
+			out.print("<br><br>As you can see, average tackles per game are positively correlated with win/loss ratio." +
+					"This means that it's better to have more tackles per game. This is because the more tackles you have, " +
+					"the more points you have denied your opponents. This is illustrated in the goal below the table.<br><br>");
 			str += "SUM(f.TACKLES) AS tackles, ";
 		} else if (type.equals("Touchdowns")) {
+			out.print("<br><br>As you can see, average touchdowns per game are positively correlated with win/loss ratio." +
+					"This means that it's better to have more touchdowns per game. This is because touchdowns are worth " +
+					"six points, meaning they're an efficient way to get more points. This is illustrated in the goal below the table.<br><br>");
 			str += "SUM(f.TOUCHDOWNS) AS touchdowns, ";
 		} else {
+			out.print("<br><br>As you can see, average field goals per game are negatively correlated with win/loss ratio." +
+					"This means that it's better to have fewer field goals per game. This is because field goals are only " + 
+					"worth three points compared to touchdowns, which are worth six. The time spent scoring field goals " + 
+					"woudl be better spent scoring touchdowns instead. This is illustrated in the goal below the table.<br><br>");
 			str += "SUM(f.FIELD_GOALS) AS field_goals, ";
 		}
 		str += "cs336project.FootballTeamData.WINS/cs336project.FootballTeamData.LOSSES AS ratio FROM cs336project.PlaysForF f " + 
@@ -81,18 +91,10 @@
 		out.print("</table>");
 		//close the connection.
 		if (type.equals("Tackles")) {
-				out.print("<br><br>Your centers will be the ones that have the most tackles.<br><br>");
 				out.print("<img src=\"tackle_win_loss_ratio.png\" />");
 			} else if (type.equals("Touchdowns")) {
-				out.print("<br><br>As you can see, average touchdowns per game are positively correlated with win/loss ratio." +
-						"This means that it's better to have more touchdowns per game. This is because touchdowns are worth " +
-						"six points, meaning they're an efficient way to get more points.<br><br>");
 								out.print("<img src=\"touchdown_win_loss_ratio.png\" />");
 			} else {
-				out.print("<br><br>As you can see, average field goals per game are negatively correlated with win/loss ratio." +
-						"This means that it's better to have fewer field goals per game. This is because field goals are only " + 
-						"worth three points compared to touchdowns, which are worth six. The time spent scoring field goals " + 
-						"woudl be better spent scoring touchdowns instead.<br><br>");
 								out.print("<img src=\"field_goal_win_loss_ratio.png\" />");
 			}
 		con.close();

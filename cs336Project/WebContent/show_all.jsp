@@ -326,9 +326,9 @@
 			} else if (entity.equals("SchoolData")) {
 				out.print("Average ACT Score");
 			} else if (entity.equals("PlaysForB")) {
-				out.print("Average Play Time (Minutes per Game)");
+				out.print("Play Time (Minutes per Game)");
 			} else if (entity.equals("PlaysForF")){
-				out.print("Average Play Time (Minutes per Game)");
+				out.print("Play Time (Percent of the Time)");
 			} else {
 				out.print("2016 Losses");
 			}
@@ -340,9 +340,9 @@
 			} else if (entity.equals("SchoolData")) {
 				out.print("<th>Acceptance Rate</th>");
 			} else if (entity.equals("PlaysForF")) {
-				out.print("<th>Average Tackles (Per Game)</th>");
+				out.print("<th>Tackles (Per Season)</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<th>Average Rebounds (Per Game)</th>");
+				out.print("<th>Rebounds (Per Game)</th>");
 			}
 			
 			//Print out the seventh column
@@ -351,9 +351,9 @@
 			} else if (entity.equals("SchoolData")) {
 				out.print("<th>Endowment</th>");
 			} else if (entity.equals("PlaysForF")) {
-				out.print("<th>Average Touchdowns (Per Game)</th>");
+				out.print("<th>Touchdowns (Per Season)</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<th>Average Assists (Per Game)</th>");
+				out.print("<th>Assists (Per Game)</th>");
 			}
 			
 			//Print out the eighth column
@@ -362,9 +362,9 @@
 			} else if (entity.equals("SchoolData")) {
 				out.print("<th>Sports Expenses</th>");
 			} else if (entity.equals("PlaysForF")) {
-				out.print("<th>Average Field Goals (Per Game)</th>");
+				out.print("<th>Field Goals (Per Season)</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<th>Average Blocks (Per Game)</th>");
+				out.print("<th>Blocks (Per Game)</th>");
 			}
 			
 			//Print out the ninth column
@@ -375,7 +375,7 @@
 			} else if (entity.equals("PlaysForF")) {
 				out.print("<th>School ID</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<th>Average Steals (Per Game)</th>");
+				out.print("<th>Steals (Per Game)</th>");
 			}
 			
 			//Print out the tenth column
@@ -384,21 +384,21 @@
 			} else if (entity.equals("PlaysForF")) {
 				out.print("<th>Player Status</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<th>Average Fouls (Per Game)</th>");
+				out.print("<th>Fouls (Per Game)</th>");
 			}
 			
 			//Print out the eleventh column
 			if (entity.equals("PlayerData")) {
 				out.print("<th>School ID</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<th>Average Turnovers (Per Game)</th>");
+				out.print("<th>Turnovers (Per Game)</th>");
 			}
 			
 			//Print out the twelfth column
 			if (entity.equals("PlayerData")) {
 				out.print("<th>Major</th>");
 			} else if (entity.equals("PlaysForB")){
-				out.print("<th>Average Points (Per Game)</th>");
+				out.print("<th>Points (Per Game)</th>");
 			}
 			
 			//Print out the thirteenth column

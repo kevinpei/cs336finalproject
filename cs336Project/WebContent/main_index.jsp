@@ -16,10 +16,10 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a class="active" href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a href="basketball_index.jsp">Basketball</a>
-  <a href="administrator_index.jsp">For Administrators</a>
-  <a href="fan_index.jsp">For Fans</a>
+  <a href="football_administrator_index.jsp">Football for Administrators</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
+  <a href="football_fan_index.jsp">Football for Fans</a>
+  <a href="basketball_fan_index.jsp">Basketball for Fans</a>
 </div>
 <div>
 <img class="football_background" src="football_player.jpg" />

@@ -38,11 +38,17 @@
 		if(entity.equals("Select")){
 			con.close();
 		} else if(entity.equals("Endowment")){
-			str = "SELECT a.SCHOOL, f.ENDOWMENT, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a, cs336project.SchoolData f WHERE a.SCHOOL = f.SCHOOL GROUP BY a.SCHOOL ORDER BY f.ENDOWMENT desc limit 14";
+			out.print("<br><br>As you can see, funding is positively correlated with Win/Loss ratio. This means that " + 
+					"the better funded your school is, the better your football team will perform. There is a graph at the bottom of this page illustrating that.<br><br>");
+			str = "SELECT a.SCHOOL, f.ENDOWMENT, a.WINS, a.LOSSES, a.WINS/a.LOSSES AS ratio FROM cs336project.FootballTeamData a, cs336project.SchoolData f WHERE a.SCHOOL = f.SCHOOL GROUP BY a.SCHOOL ORDER BY ratio desc limit 14";
 		} else if(entity.equals("Coachpay")){
-			str = "SELECT a.SCHOOL, a.COACH, a.FCOACHPAY, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a GROUP BY a.SCHOOL ORDER BY a.FCOACHPAY desc limit 14";
+			out.print("<br><br>As you can see, football coach pay is positively correlated with Win/Loss ratio. This means that if " + 
+					"your coach is better paid, your football team will perform better. There is a graph at the bottom of this page illustrating that.<br><br>");
+			str = "SELECT a.SCHOOL, a.COACH, a.FCOACHPAY, a.WINS, a.LOSSES, a.WINS/a.LOSSES AS ratio FROM cs336project.FootballTeamData a GROUP BY a.SCHOOL ORDER BY ratio desc limit 14";
 		} else { //Expenses  		if(entity.equals("Expenses")){
-			str = "SELECT a.SCHOOL, f.SPORTSEXPENSES, a.WINS, a.LOSSES FROM cs336project.FootballTeamData a, cs336project.SchoolData f WHERE a.SCHOOL = f.SCHOOL GROUP BY a.SCHOOL ORDER BY f.SPORTSEXPENSES desc limit 14";
+			str = "SELECT a.SCHOOL, f.SPORTSEXPENSES, a.WINS, a.LOSSES, a.WINS/a.LOSSES AS ratio FROM cs336project.FootballTeamData a, cs336project.SchoolData f WHERE a.SCHOOL = f.SCHOOL GROUP BY a.SCHOOL ORDER BY ratio desc limit 14";
+			out.print("<br><br>As you can see, sports expenses are positively correlated with Win/Loss ratio. This means that if " + 
+					"you increase your funding of sports, your football team will perform better. There is a graph at the bottom of this page illustrating that.<br><br>");
 		}
 
 		//Run the query against the database.
@@ -57,12 +63,12 @@
 		out.print("<th>SCHOOL</th>");
 		
 		if (entity.equals("Coachpay")){
-			out.print("<th>COACH</th>");
+			out.print("<th>Coach</th>");
 		}
 		
 		//make a column 2
 		if(entity.equals("Endowment")){
-			out.print("<th>Endowment</th>");
+			out.print("<th>School Endowment</th>");
 		} else if (entity.equals("Coachpay")){
 			out.print("<th>Coach's Salary</th>");
 		} else if (entity.equals("Expenses")){
@@ -73,6 +79,7 @@
 		out.print("<th>Wins</th>");
 		//make a column 4
 		out.print("<th>Losses</th>");
+		out.print("<th>Win/Loss Ratio</th>");
 		out.print("</tr>");
 		
 
@@ -100,13 +107,21 @@
 			out.print("<td>" + result.getString("WINS") + "</td>");
 			//make a column 4
 			out.print("<td>" + result.getString("LOSSES") + "</td>");
+			out.print("<td>" + result.getString("ratio") + "</td>");
 			
 			out.print("</tr>");
 		} //end while loop
 		
 		
 		out.print("</table>");
-		out.print("<img src=\"football_funding_win_ratio.png\" />");
+		if(entity.equals("Endowment")){
+			out.print("<img src=\"football_funding_win_ratio.png\" />");
+		} else if (entity.equals("Coachpay")){
+			out.print("<img src=\"football_coach_pay_ratio.png\" />");
+		} else if (entity.equals("Expenses")){
+			out.print("<img src=\"football_expenses_ratio.png\" />");
+		} //end if else
+		
 		//close the connection.
 		con.close();
 		

@@ -15,8 +15,10 @@
 </div>
 <div class="navigation" id="navigationbar">
   <a href="main_index.jsp">Home</a>
-  <a href="football_index.jsp">Football</a>
-  <a href="basketball_index.jsp">Basketball</a>
+  <a href="football_administrator_index.jsp">Football for Administrators</a>
+  <a href="basketball_administrator_index.jsp">Basketball for Administrators</a>
+  <a href="football_fan_index.jsp">Football for Fans</a>
+  <a href="basketball_fan_index.jsp">Basketball for Fans</a>
 </div>
 
 	<% 
@@ -36,11 +38,15 @@
 			if(entity.equals("Select")){
 				con.close();
 			} else if(entity.equals("Averages by Team")){
-				str = "SELECT f.SCHOOL, AVG(f.GPA), AVG(f.INJURIES), AVG(f.CRIMES) FROM cs336project.PlayerData f GROUP BY f.SCHOOL ORDER BY AVG(f.GPA) desc";
+				str = "SELECT f.SCHOOL, AVG(f.GPA), AVG(f.INJURIES) FROM cs336project.PlayerData f GROUP BY f.SCHOOL ORDER BY AVG(f.GPA) desc";
+				out.print("As you can see, GPA and injury record is mostly constant per school. However, in the case of Penn State, the GPA is unusually " +
+				"low. If you are a Penn State administrator, you should try to rectify this as soon as possible.<br><br>");
 			} else {
-				str = "SELECT s1.POS, AVG(f.GPA), AVG(f.INJURIES), AVG(f.CRIMES) FROM cs336project.PlaysForF s1, cs336project.PlayerData f WHERE s1.ID_NUM = f.ID_NUM AND s1.SCHOOL = f.SCHOOL GROUP BY s1.POS ORDER BY AVG(f.GPA) desc";
+				str = "SELECT s1.POS, AVG(f.GPA), AVG(f.INJURIES) FROM cs336project.PlaysForF s1, cs336project.PlayerData f WHERE s1.ID_NUM = f.ID_NUM AND s1.SCHOOL = f.SCHOOL GROUP BY s1.POS ORDER BY AVG(f.GPA) desc";
+				out.print("As you can see, GPA and injury record are closely related. Further, position seems to determine injury record, " + 
+				"which in turn determines GPA. Be careful of who you assign to what positions.<br><br>");
 			}
-
+			
 			//Run the query against the database.
 			ResultSet result = stmt.executeQuery(str);
 			
@@ -56,11 +62,8 @@
 				out.print("<th>Position</th>");
 			}
 			//make a column 2
-			out.print("<th>Average GPA</th>");
-			//make a column 3
+				out.print("<th>Average GPA</th>");
 			out.print("<th>Average Number of Injuries</th>");
-			//make a column 4
-			out.print("<th>Average Number of Crimes Committed</th>");
 			out.print("</tr>");
 			
 
@@ -75,10 +78,7 @@
 					out.print("<td>" + result.getString("POS") + "</td>");
 				}
 				out.print("<td>" + result.getString("AVG(f.GPA)") + "</td>");
-				//make a column
 				out.print("<td>" + result.getString("AVG(f.INJURIES)") + "</td>");
-				//make a column
-				out.print("<td>" + result.getString("AVG(f.CRIMES)") + "</td>");
 				
 				out.print("</tr>");
 			} //end while loop

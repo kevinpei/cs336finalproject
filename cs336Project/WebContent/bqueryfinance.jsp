@@ -104,7 +104,20 @@
 		} //end while loop
 		
 		
-		out.print("</table>");
+		if(entity.equals("Endowment")){
+			out.print("</table>");
+			//out.print("<img src=\".PNG\" />");
+			
+		} else if (entity.equals("Coachpay")){
+			out.print("</table>");
+			out.print("<img src=\"wlcoachpaybask.PNG\" />");
+			
+		} else if (entity.equals("Expenses")){
+			out.print("</table>");
+			out.print("<img src=\"bballfunding.PNG\" />");
+			
+		} //end if else
+		
 		//close the connection.
 		con.close();
 		
